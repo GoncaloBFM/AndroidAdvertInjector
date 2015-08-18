@@ -18,6 +18,7 @@ import java.util.LinkedList;
  */
 public class AndroidPublicIdsRW extends XMLRW implements IAndroidPublicIdsRW {
 
+	private static final String XPATH_TO_ADD_NODES = "/*/*";
 	private static final String NODES= "/*";
 	private static final String ID_ATTRIBUTE_NAME = "id";
 	private static final String TYPE_ATTRIBUTE_NAME = "type";
@@ -30,14 +31,15 @@ public class AndroidPublicIdsRW extends XMLRW implements IAndroidPublicIdsRW {
 	}
 
 	@Override
-	public LinkedList<Resource> addResources(String filePath) throws XPathExpressionException, IOException, SAXException {
-		Node parentNode = (Node) this.xpath.compile(NODES).evaluate(this.document, XPathConstants.NODE);
-		Document addendum = this.builder.parse(filePath);
-		NodeList nodes = (NodeList) this.xpath.compile(XPATH_TO_ADD_NODES).evaluate(addendum, XPathConstants.NODESET);
+	public LinkedList<Resource> addResources(String filePath) throws XPathExpressionException, IOException, SAXException, ParserConfigurationException {
+		IXMLParser addendum = new XMLParser(filePath);
+		NodeList nodes = addendum.getNodes(XPATH_TO_ADD_NODES);
+
+		Node parentNode = this.getNode(NODES);
 		LinkedList<Resource> newResourcesList = new LinkedList<Resource>();
 
 		for (int i = 0; i < nodes.getLength(); i++) {
-			Node importedNode = this.document.importNode(nodes.item(i), true);
+			Node importedNode = this.importNode(nodes.item(i));
 
 			NamedNodeMap attributes = importedNode.getAttributes();
 			String resourceType = attributes.getNamedItem(TYPE_ATTRIBUTE_NAME).getNodeValue();
@@ -54,7 +56,7 @@ public class AndroidPublicIdsRW extends XMLRW implements IAndroidPublicIdsRW {
 		return newResourcesList;
 	}
 
-	private static class IdGenerator extends XMLParser {
+	private class IdGenerator extends XMLParser {
 
 		public IdGenerator(String pathToPublicIdFile) throws IOException, SAXException, ParserConfigurationException {
 			super(pathToPublicIdFile);
@@ -87,7 +89,7 @@ public class AndroidPublicIdsRW extends XMLRW implements IAndroidPublicIdsRW {
 		}
 
 		private long getAvailableIdForResource(String resourceType) throws XPathExpressionException {
-			NodeList nodes = (NodeList) this.xpath.compile(NODES + "/*[@type=\"" + resourceType + "\"]").evaluate(this.document, XPathConstants.NODESET);
+			NodeList nodes = AndroidPublicIdsRW.this.getNodes(NODES + "/*[@type=\"" + resourceType + "\"]");
 			Long currentValue = this.androidIdHexStringToLong(this.getAndroidIdHexStringFromNode(nodes.item(0)));
 			for (int i = 1; i < nodes.getLength(); i++) {
 				long newValue = this.androidIdHexStringToLong(this.getAndroidIdHexStringFromNode(nodes.item(i)));

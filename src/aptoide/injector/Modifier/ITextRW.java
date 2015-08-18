@@ -7,17 +7,17 @@ import java.io.*;
  */
 public interface ITextRW {
 
-	public String getCurrentFileContent();
+	String getCurrentFileContent();
 
-	public void setFileContent(String content);
+	void setFileContent(String content);
 
-	public String appendToFileContent(String string);
+	String appendToFileContent(String string);
 
-	public String prependToFileContent(String string);
+	String prependToFileContent(String string);
 
-	public String replaceFileContent(String stringToReplace, String stringToAdd);
+	String replaceFileContent(String stringToReplace, String stringToAdd);
 
-	public String removeFileContent(String stringToRemove);
+	String removeFileContent(String stringToRemove);
 
-	public void writeFile() throws IOException;
+	void writeFile() throws IOException;
 }

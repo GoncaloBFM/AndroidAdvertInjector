@@ -16,8 +16,7 @@ import java.util.LinkedList;
 public class Modifier implements IModifier {
 
 	private static final String FILES_TO_ADD_FULL_DIRECTORY_PATH = Paths.FILES_TO_ADD_FULL_DIRECTORY_PATH;
-	private static final String FILE_WITH_ACTIVITIES_CHANGES_FULL_PATH = Paths.FILE_WITH_ACTIVITIES_CHANGES_FULL_PATH;
-	private static final String FILE_WITH_PERMISSIONS_TO_ADD_FULL_PATH = Paths.FILE_WITH_PERMISSIONS_TO_ADD_FULL_PATH;
+	private static final String MANIFEST_ADDENDUM_FULL_PATH = Paths.MANIFEST_ADDENDUM_FULL_PATH;
 	private static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = Paths.FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH;
 
 	private static final String ANDROID_MANIFEST_FILE = "AndroidManifest.xml";
@@ -53,7 +52,7 @@ public class Modifier implements IModifier {
 				TextRW file = null;
 				try {
 					file = new TextRW(addedFile);
-				} catch (IOException e) {
+				} catch (Exception e) {
 					throw new ModifierException("Could not change old resource id to the new one in one of the new files", e);
 				}
 				for (Resource resource : resourcesAdded) {
@@ -61,7 +60,7 @@ public class Modifier implements IModifier {
 				}
 				try {
 					file.writeFile();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					throw new ModifierException("Could not write file after changing an old resource id to a new one", e);
 				}
 			}
@@ -73,7 +72,7 @@ public class Modifier implements IModifier {
 		ITextRW linkerFile;
 		try {
 			linkerFile = new TextRW(decompiledDirectory + File.separator + LINKER_ACTIVITY_FULL_PATH);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new ModifierException("Could not load linker activity file", e);
 		}
 
@@ -81,7 +80,7 @@ public class Modifier implements IModifier {
 
 		try {
 			linkerFile.writeFile();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new ModifierException("Could not write linker file", e);
 		}
 	}
@@ -96,7 +95,7 @@ public class Modifier implements IModifier {
 
 		try {
 			rFile = new TextRW(file.getAbsolutePath());
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new ModifierException("Could not load R file", e);
 		}
 
@@ -106,7 +105,7 @@ public class Modifier implements IModifier {
 
 		try {
 			rFile.writeFile();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new ModifierException("Could not write R file", e);
 		}
 	}
@@ -133,7 +132,7 @@ public class Modifier implements IModifier {
 
 		try {
 			this.androidPublicIdsRW.writeChanges();
-		} catch (TransformerException e) {
+		} catch (Exception e) {
 			throw new ModifierException("Could not write public ids file", e);
 		}
 
@@ -149,31 +148,19 @@ public class Modifier implements IModifier {
 
 		try {
 			this.mainActivityName = this.parseMainActivityName(this.androidManifestRW.getMainActivityName());
-		} catch (XPathExpressionException e) {
-			throw new ModifierException("Could not load manifest main activity", e);
-		}
-
-		try {
-			this.androidManifestRW.removeLauncherIntent();
-		} catch (XPathExpressionException e) {
-			throw new ModifierException("Could not remove launcher intent from manifest", e);
-		}
-
-		try {
-			this.androidManifestRW.addActivities(FILE_WITH_ACTIVITIES_CHANGES_FULL_PATH);
 		} catch (Exception e) {
-			throw new ModifierException("Could not add new activities to the manifest", e);
+			throw new ModifierException("Could not load get main activity name", e);
 		}
 
 		try {
-			this.androidManifestRW.addPermissions(FILE_WITH_PERMISSIONS_TO_ADD_FULL_PATH);
+			this.androidManifestRW.parseManifestAddendum(MANIFEST_ADDENDUM_FULL_PATH);
 		} catch (Exception e) {
-			throw new ModifierException("Could not add new permissions to the manifest", e);
+			throw new ModifierException("Could not change manifest according to the addendum", e);
 		}
 
 		try {
 			this.androidManifestRW.writeChanges();
-		} catch (TransformerException e) {
+		} catch (Exception e) {
 			throw new ModifierException("Could not write manifest main activity", e);
 		}
 	}

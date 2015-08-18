@@ -12,37 +12,70 @@ import java.io.*;
 
 public class AndroidManifestRW extends XMLRW implements IAndroidManifestRW {
 
-	private static final String MANIFEST_NODE = "/manifest";
-	private static final String APPLICATION_NODE = MANIFEST_NODE + "/application";
-	private static final String APP_LAUNCHER_INTENT_FILTER = APPLICATION_NODE + "/activity/intent-filter/category[@name=\"android.intent.category.LAUNCHER\"]/..";
-	private static final String MAIN_ACTIVITY_NODE = APP_LAUNCHER_INTENT_FILTER + "/..";
-	private static final String MAIN_ACTIVITY_FILE_NAME = MAIN_ACTIVITY_NODE + "/@name";
+	private static final String MAIN_ACTIVITY_FILE_NAME = "/manifest/application/activity/intent-filter/category[@name=\"android.intent.category.LAUNCHER\"]/../../@name";
+	private static final String MANIFEST_ADDENDUM_NODES = "/*/*";
 
-	public AndroidManifestRW(String pathToPublicIdFile) throws IOException, SAXException, ParserConfigurationException {
-		super(pathToPublicIdFile);
+	private static final String MODIFICATION_ADD_NODE = "add";
+	private static final String MODIFICATION_REMOVE_NODE = "remove";
+	private static final String MODIFICATIO_REPLACE_NODE = "replace";
+	private static final String XPATH_ATTRIBUTE = "xpath";
+
+
+	public AndroidManifestRW(String manifest) throws IOException, SAXException, ParserConfigurationException {
+		super(manifest);
 	}
 
 	@Override
 	public String getMainActivityName() throws XPathExpressionException {
-		return (String) this.xpath.compile(MAIN_ACTIVITY_FILE_NAME).evaluate(this.document, XPathConstants.STRING);
+		return this.getString(MAIN_ACTIVITY_FILE_NAME);
 	}
 
 	@Override
-	public void removeLauncherIntent() throws XPathExpressionException {
-		Node mainActivityNode = (Node) this.xpath.compile(MAIN_ACTIVITY_NODE).evaluate(this.document, XPathConstants.NODE);
-		Node intentFilter = (Node) this.xpath.compile(APP_LAUNCHER_INTENT_FILTER).evaluate(this.document, XPathConstants.NODE);
-		mainActivityNode.removeChild(intentFilter);
+	public void parseManifestAddendum(String manifestAddendumFile) throws XPathExpressionException, IOException, SAXException, ManifestAddendumException, ParserConfigurationException {
+		IXMLParser addendum = new XMLParser(manifestAddendumFile);
+		NodeList addendumNones = addendum.getNodes(MANIFEST_ADDENDUM_NODES);
+		for (int i = 0; i < addendumNones.getLength(); i++) {
+			Node node = addendumNones.item(i);
+			this.modificationSelector(node);
+		}
 	}
 
-	@Override
-	public void addActivities(String filePath) throws XPathExpressionException, IOException, SAXException {
-		Node applicationNode = (Node) this.xpath.compile(APPLICATION_NODE).evaluate(this.document, XPathConstants.NODE);
-		this.insertNodesFromFile(filePath, applicationNode);
+	private void modificationSelector(Node node) throws XPathExpressionException, ManifestAddendumException, IOException, SAXException {
+		String type = node.getNodeName();
+		String xpath = this.getXPathAttribute(node);
+		if (type.equals(MODIFICATION_ADD_NODE)) {
+			this.addNodesToManifest(node.getChildNodes(), xpath);
+		} else if (type.equals(MODIFICATION_REMOVE_NODE)) {
+			this.removeNodesFromManifest(xpath);
+		} else if (type.equals(MODIFICATIO_REPLACE_NODE)) {
+			this.replaceNodesFromManifest(node.getChildNodes(), xpath);
+		}
 	}
 
-	@Override
-	public void addPermissions(String filePath) throws XPathExpressionException, IOException, SAXException {
-		Node applicationNode = (Node) this.xpath.compile(MANIFEST_NODE).evaluate(this.document, XPathConstants.NODE);
-		this.insertNodesFromFile(filePath, applicationNode);
+	private String getXPathAttribute(Node node) {
+		return node.getAttributes().getNamedItem(XPATH_ATTRIBUTE).getNodeValue();
 	}
+
+	private void addNodesToManifest(NodeList nodesToAppend, String parentNodePath) throws XPathExpressionException, IOException, SAXException {
+		NodeList parentNodes = this.getNodes(parentNodePath);
+		for (int i = 0; i < parentNodes.getLength(); i++) {
+			this.addNodes(nodesToAppend, parentNodes.item(i), true);
+		}
+	}
+
+	private void removeNodesFromManifest(String nodePath) throws XPathExpressionException, ManifestAddendumException {
+		NodeList nodeList = this.getNodes(nodePath);
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			this.removeNode(nodeList.item(i));
+		}
+	}
+
+	private void replaceNodesFromManifest(NodeList nodesToAdd, String NodesToRemove) throws XPathExpressionException, ManifestAddendumException {
+		NodeList removeList = this.getNodes(NodesToRemove);
+		for (int i = 0; i < removeList.getLength(); i++) {
+			this.replaceNodes(nodesToAdd, removeList.item(i), true);
+		}
+	}
+
+
 }

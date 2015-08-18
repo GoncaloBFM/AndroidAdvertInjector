@@ -24,8 +24,7 @@ public class Paths {
 	public static final String RESOURCES_DIRECTORY = "ResourceFiles";
 	public static final String FILES_TO_ADD_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "FilesToAdd";
 	public static final String ADDENDUM_FILES_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "AddendumFiles";
-	public static final String FILE_WITH_ACTIVITIES_CHANGES_FULL_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "activities_to_add.xml";
-	public static final String FILE_WITH_PERMISSIONS_TO_ADD_FULL_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "permissions_to_add.xml";
+	public static final String MANIFEST_ADDENDUM_FULL_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "manifest.xml";
 	public static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "public_ids_to_add.xml";
 
 	//Files
