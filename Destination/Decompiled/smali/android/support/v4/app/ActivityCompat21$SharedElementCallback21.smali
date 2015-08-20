@@ -3,17 +3,6 @@
 .source "ActivityCompat21.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/ActivityCompat21;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x409
-    name = "SharedElementCallback21"
-.end annotation
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -27,13 +16,45 @@
 
 
 # virtual methods
-.method public abstract onCaptureSharedElementSnapshot(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/os/Parcelable;
+.method public abstract a(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/os/Parcelable;
 .end method
 
-.method public abstract onCreateSnapshotView(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
+.method public abstract a(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
 .end method
 
-.method public abstract onMapSharedElements(Ljava/util/List;Ljava/util/Map;)V
+.method public abstract a(Ljava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/view/View;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
+.method public abstract a(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/view/View;",
+            ">;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/view/View;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
+.method public abstract a(Ljava/util/List;Ljava/util/Map;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,39 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract onRejectSharedElements(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/View;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract onSharedElementEnd(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/View;",
-            ">;",
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/View;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract onSharedElementStart(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+.method public abstract b(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -6,17 +6,6 @@
 .implements Landroid/support/v4/widget/SlidingPaneLayout$PanelSlideListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/widget/SlidingPaneLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "SimplePanelSlideListener"
-.end annotation
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -30,30 +19,26 @@
 
 
 # virtual methods
-.method public onPanelClosed(Landroid/view/View;)V
+.method public a(Landroid/view/View;)V
     .locals 0
-    .param p1, "panel"    # Landroid/view/View;
-
-    .prologue
-    .line 246
-    return-void
-.end method
-
-.method public onPanelOpened(Landroid/view/View;)V
-    .locals 0
-    .param p1, "panel"    # Landroid/view/View;
 
     .prologue
     .line 243
     return-void
 .end method
 
-.method public onPanelSlide(Landroid/view/View;F)V
+.method public a(Landroid/view/View;F)V
     .locals 0
-    .param p1, "panel"    # Landroid/view/View;
-    .param p2, "slideOffset"    # F
 
     .prologue
     .line 240
+    return-void
+.end method
+
+.method public b(Landroid/view/View;)V
+    .locals 0
+
+    .prologue
+    .line 246
     return-void
 .end method

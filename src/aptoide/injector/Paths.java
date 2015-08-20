@@ -30,11 +30,11 @@ public class Paths {
 	//Files
 	public static final String SMALI_DIRECTORY = "smali";
 	public static final String LINKER_ACTIVITY_FULL_PATH = SMALI_DIRECTORY + File.separator + "aptoide" + File.separator + "cm" + File.separator + "adcolonydecompile" + File.separator + "ExtraActivity.smali";
-	public static final String R_LAYOUT_FILE_NAME = "R$layout.smali";
 
 	//Target Directories
 	public static final String ROOT_TARGET_DIRECTORY = "Destination";
 	public static final String DECOMPILER_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "Decompiled";
+	public static final String DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "OriginalDecompiled";
 	public static final String RECOMPILER_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "Recompiled";
 	public static final String RECOMPILED_APK_FULL_PATH = RECOMPILER_TARGET_FULL_DIRECTORY_PATH + File.separator + "recompiled.apk";
 

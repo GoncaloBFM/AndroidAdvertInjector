@@ -3,59 +3,36 @@
 .source "MediaSessionCompatApi21.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/session/MediaSessionCompatApi21;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Callback"
-.end annotation
-
-
 # virtual methods
-.method public abstract onCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ResultReceiver;)V
+.method public abstract a()V
 .end method
 
-.method public abstract onCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public abstract a(J)V
 .end method
 
-.method public abstract onFastForward()V
+.method public abstract a(Ljava/lang/Object;)V
 .end method
 
-.method public abstract onMediaButtonEvent(Landroid/content/Intent;)Z
+.method public abstract a(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ResultReceiver;)V
 .end method
 
-.method public abstract onPause()V
+.method public abstract a(Landroid/content/Intent;)Z
 .end method
 
-.method public abstract onPlay()V
+.method public abstract b()V
 .end method
 
-.method public abstract onPlayFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public abstract c()V
 .end method
 
-.method public abstract onPlayFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public abstract d()V
 .end method
 
-.method public abstract onRewind()V
+.method public abstract e()V
 .end method
 
-.method public abstract onSeekTo(J)V
+.method public abstract f()V
 .end method
 
-.method public abstract onSetRating(Ljava/lang/Object;)V
-.end method
-
-.method public abstract onSkipToNext()V
-.end method
-
-.method public abstract onSkipToPrevious()V
-.end method
-
-.method public abstract onSkipToQueueItem(J)V
-.end method
-
-.method public abstract onStop()V
+.method public abstract g()V
 .end method

@@ -3,20 +3,9 @@
 .source "VolumeProviderCompatApi21.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/VolumeProviderCompatApi21;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Delegate"
-.end annotation
-
-
 # virtual methods
-.method public abstract onAdjustVolume(I)V
+.method public abstract a(I)V
 .end method
 
-.method public abstract onSetVolumeTo(I)V
+.method public abstract b(I)V
 .end method

@@ -35,6 +35,11 @@ Escape characters:
 
 <manifest-addendum>
 
+    <remove xpath="/manifest/uses-permission[@name=&quot;android.permission.INTERNET&quot;]"/>
+    <remove xpath="/manifest/uses-permission[@name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;]"/>
+    <remove xpath="/manifest/uses-permission[@name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;]"/>
+    <remove xpath="/manifest/uses-permission[@name=&quot;android.permission.VIBRATE&quot;]"/>
+
     <remove xpath="/manifest/application/activity/intent-filter/category[@name=&quot;android.intent.category.LAUNCHER&quot;]/.."/>
 
     <add xpath="/manifest/application">

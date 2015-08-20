@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/FragmentState;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -32,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 142
+    .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,12 +31,11 @@
 
 
 # virtual methods
-.method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentState;
+.method public a(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 144
+    .line 143
     new-instance v0, Landroid/support/v4/app/FragmentState;
 
     invoke-direct {v0, p1}, Landroid/support/v4/app/FragmentState;-><init>(Landroid/os/Parcel;)V
@@ -53,37 +43,34 @@
     return-object v0
 .end method
 
-.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+.method public a(I)[Landroid/support/v4/app/FragmentState;
     .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
-    .line 142
-    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentState;
+    .line 147
+    new-array v0, p1, [Landroid/support/v4/app/FragmentState;
+
+    return-object v0
+.end method
+
+.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 141
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentState$1;->a(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentState;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public newArray(I)[Landroid/support/v4/app/FragmentState;
+.method public synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
     .prologue
-    .line 148
-    new-array v0, p1, [Landroid/support/v4/app/FragmentState;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # I
-
-    .prologue
-    .line 142
-    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentState$1;->newArray(I)[Landroid/support/v4/app/FragmentState;
+    .line 141
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentState$1;->a(I)[Landroid/support/v4/app/FragmentState;
 
     move-result-object v0
 

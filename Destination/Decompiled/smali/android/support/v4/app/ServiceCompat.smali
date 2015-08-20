@@ -3,10 +3,6 @@
 .source "ServiceCompat.java"
 
 
-# static fields
-.field public static final START_STICKY:I = 0x1
-
-
 # direct methods
 .method private constructor <init>()V
     .locals 0

@@ -25,11 +25,6 @@ public class Modifier implements IModifier {
 	private static final String LINKER_ACTIVITY_FULL_PATH = Paths.LINKER_ACTIVITY_FULL_PATH;
 	private static final String LINKER_ACTIVITY_OLD_LINK = "aptoide/cm/adcolonydecompile/LinkActivity";
 
-	private static final String R_LAYOUT_FILE_NAME = Paths.R_LAYOUT_FILE_NAME;
-	private static final String R_RESOURCE_STARTING_STRING = ".field public static final ";
-	private static final String R_RESOURCE_MIDDLE_STRING = ":I = ";
-	private static final String R_RESOURCE_END_STRING = "\n";
-
 	private static final String SMALI_EXTENSION = "smali";
 
 	IAndroidManifestRW androidManifestRW;
@@ -42,7 +37,6 @@ public class Modifier implements IModifier {
 		this.modifyManifest(decompiledDirectory);
 		LinkedList<Resource> newResources = this.modifyPublicIds(decompiledDirectory);
 		this.modifyLinkerActivity(decompiledDirectory);
-		this.modifyR(decompiledDirectory, newResources);
 		this.replaceResources(filesAdded, newResources);
 	}
 
@@ -82,31 +76,6 @@ public class Modifier implements IModifier {
 			linkerFile.writeFile();
 		} catch (Exception e) {
 			throw new ModifierException("Could not write linker file", e);
-		}
-	}
-
-	private void modifyR(String decompiledDirectory, LinkedList<Resource> newResources) throws ModifierException {
-		ITextRW rFile;
-
-		File file = FileManager.findFile(new File(decompiledDirectory), R_LAYOUT_FILE_NAME);
-		if (file == null) {
-			throw new ModifierException("Could not find R file");
-		}
-
-		try {
-			rFile = new TextRW(file.getAbsolutePath());
-		} catch (Exception e) {
-			throw new ModifierException("Could not load R file", e);
-		}
-
-		for (Resource resource : newResources) {
-			rFile.prependToFileContent(R_RESOURCE_STARTING_STRING + resource.getName() + R_RESOURCE_MIDDLE_STRING + resource.getId() + R_RESOURCE_END_STRING);
-		}
-
-		try {
-			rFile.writeFile();
-		} catch (Exception e) {
-			throw new ModifierException("Could not write R file", e);
 		}
 	}
 

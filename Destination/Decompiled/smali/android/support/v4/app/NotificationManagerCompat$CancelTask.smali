@@ -6,107 +6,30 @@
 .implements Landroid/support/v4/app/NotificationManagerCompat$Task;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/NotificationManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "CancelTask"
-.end annotation
-
-
 # instance fields
-.field final all:Z
+.field final a:Ljava/lang/String;
 
-.field final id:I
+.field final b:I
 
-.field final packageName:Ljava/lang/String;
+.field final c:Ljava/lang/String;
 
-.field final tag:Ljava/lang/String;
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    .line 595
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 596
-    iput-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
-
-    .line 597
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->id:I
-
-    .line 598
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->tag:Ljava/lang/String;
-
-    .line 599
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
-
-    .line 600
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "id"    # I
-    .param p3, "tag"    # Ljava/lang/String;
-
-    .prologue
-    .line 602
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 603
-    iput-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
-
-    .line 604
-    iput p2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->id:I
-
-    .line 605
-    iput-object p3, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->tag:Ljava/lang/String;
-
-    .line 606
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
-
-    .line 607
-    return-void
-.end method
+.field final d:Z
 
 
 # virtual methods
-.method public send(Landroid/support/v4/app/INotificationSideChannel;)V
+.method public a(Landroid/support/v4/app/INotificationSideChannel;)V
     .locals 3
-    .param p1, "service"    # Landroid/support/v4/app/INotificationSideChannel;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
     .prologue
     .line 611
-    iget-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
+    iget-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->d:Z
 
     if-eqz v0, :cond_0
 
     .line 612
-    iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
+    iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->a:Ljava/lang/String;
 
-    invoke-interface {p1, v0}, Landroid/support/v4/app/INotificationSideChannel;->cancelAll(Ljava/lang/String;)V
+    invoke-interface {p1, v0}, Landroid/support/v4/app/INotificationSideChannel;->a(Ljava/lang/String;)V
 
     .line 616
     :goto_0
@@ -114,13 +37,13 @@
 
     .line 614
     :cond_0
-    iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
+    iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->a:Ljava/lang/String;
 
-    iget v1, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->id:I
+    iget v1, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->b:I
 
-    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->tag:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->c:Ljava/lang/String;
 
-    invoke-interface {p1, v0, v1, v2}, Landroid/support/v4/app/INotificationSideChannel;->cancel(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-interface {p1, v0, v1, v2}, Landroid/support/v4/app/INotificationSideChannel;->a(Ljava/lang/String;ILjava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -137,14 +60,13 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 620
-    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "packageName:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->packageName:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->a:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -155,7 +77,7 @@
 
     move-result-object v1
 
-    iget v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->id:I
+    iget v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->b:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -166,7 +88,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->tag:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->c:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -177,7 +99,7 @@
 
     move-result-object v1
 
-    iget-boolean v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->all:Z
+    iget-boolean v2, p0, Landroid/support/v4/app/NotificationManagerCompat$CancelTask;->d:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -189,7 +111,7 @@
     .line 625
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

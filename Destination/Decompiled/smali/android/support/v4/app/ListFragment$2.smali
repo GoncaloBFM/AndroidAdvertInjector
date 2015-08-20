@@ -6,19 +6,8 @@
 .implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/ListFragment;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroid/support/v4/app/ListFragment;
+.field final synthetic a:Landroid/support/v4/app/ListFragment;
 
 
 # direct methods
@@ -27,7 +16,7 @@
 
     .prologue
     .line 56
-    iput-object p1, p0, Landroid/support/v4/app/ListFragment$2;->this$0:Landroid/support/v4/app/ListFragment;
+    iput-object p1, p0, Landroid/support/v4/app/ListFragment$2;->a:Landroid/support/v4/app/ListFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,9 +27,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 6
-    .param p2, "v"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,8 +39,7 @@
 
     .prologue
     .line 58
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
-    iget-object v0, p0, Landroid/support/v4/app/ListFragment$2;->this$0:Landroid/support/v4/app/ListFragment;
+    iget-object v0, p0, Landroid/support/v4/app/ListFragment$2;->a:Landroid/support/v4/app/ListFragment;
 
     move-object v1, p1
 
@@ -66,7 +51,7 @@
 
     move-wide v4, p4
 
-    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/app/ListFragment;->onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/app/ListFragment;->a(Landroid/widget/ListView;Landroid/view/View;IJ)V
 
     .line 59
     return-void

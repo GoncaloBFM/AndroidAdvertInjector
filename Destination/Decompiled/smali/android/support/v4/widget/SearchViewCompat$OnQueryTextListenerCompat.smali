@@ -3,19 +3,8 @@
 .source "SearchViewCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/widget/SearchViewCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x409
-    name = "OnQueryTextListenerCompat"
-.end annotation
-
-
 # instance fields
-.field final mListener:Ljava/lang/Object;
+.field final a:Ljava/lang/Object;
 
 
 # direct methods
@@ -27,16 +16,15 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 337
-    # getter for: Landroid/support/v4/widget/SearchViewCompat;->IMPL:Landroid/support/v4/widget/SearchViewCompat$SearchViewCompatImpl;
-    invoke-static {}, Landroid/support/v4/widget/SearchViewCompat;->access$000()Landroid/support/v4/widget/SearchViewCompat$SearchViewCompatImpl;
+    invoke-static {}, Landroid/support/v4/widget/SearchViewCompat;->a()Landroid/support/v4/widget/SearchViewCompat$SearchViewCompatImpl;
 
     move-result-object v0
 
-    invoke-interface {v0, p0}, Landroid/support/v4/widget/SearchViewCompat$SearchViewCompatImpl;->newOnQueryTextListener(Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListenerCompat;)Ljava/lang/Object;
+    invoke-interface {v0, p0}, Landroid/support/v4/widget/SearchViewCompat$SearchViewCompatImpl;->a(Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListenerCompat;)Ljava/lang/Object;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListenerCompat;->mListener:Ljava/lang/Object;
+    iput-object v0, p0, Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListenerCompat;->a:Ljava/lang/Object;
 
     .line 338
     return-void
@@ -44,23 +32,21 @@
 
 
 # virtual methods
-.method public onQueryTextChange(Ljava/lang/String;)Z
+.method public a(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "newText"    # Ljava/lang/String;
 
     .prologue
-    .line 365
+    .line 353
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method public onQueryTextSubmit(Ljava/lang/String;)Z
+.method public b(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
-    .line 353
+    .line 365
     const/4 v0, 0x0
 
     return v0

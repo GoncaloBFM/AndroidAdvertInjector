@@ -14,17 +14,13 @@
     return-void
 .end method
 
-.method public static setSource(Ljava/lang/Object;Landroid/view/View;I)V
+.method public static a(Ljava/lang/Object;Landroid/view/View;I)V
     .locals 0
-    .param p0, "record"    # Ljava/lang/Object;
-    .param p1, "root"    # Landroid/view/View;
-    .param p2, "virtualDescendantId"    # I
 
     .prologue
     .line 28
     check-cast p0, Landroid/view/accessibility/AccessibilityRecord;
 
-    .end local p0    # "record":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/view/accessibility/AccessibilityRecord;->setSource(Landroid/view/View;I)V
 
     .line 29

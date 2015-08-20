@@ -56,6 +56,7 @@ public class AndroidManifestRW extends XMLRW implements IAndroidManifestRW {
 		return node.getAttributes().getNamedItem(XPATH_ATTRIBUTE).getNodeValue();
 	}
 
+	//TODO: test with multiple parents
 	private void addNodesToManifest(NodeList nodesToAppend, String parentNodePath) throws XPathExpressionException, IOException, SAXException {
 		NodeList parentNodes = this.getNodes(parentNodePath);
 		for (int i = 0; i < parentNodes.getLength(); i++) {
@@ -63,6 +64,7 @@ public class AndroidManifestRW extends XMLRW implements IAndroidManifestRW {
 		}
 	}
 
+	//TODO: remove multiple nodes
 	private void removeNodesFromManifest(String nodePath) throws XPathExpressionException, ManifestAddendumException {
 		NodeList nodeList = this.getNodes(nodePath);
 		for (int i = 0; i < nodeList.getLength(); i++) {
@@ -70,6 +72,7 @@ public class AndroidManifestRW extends XMLRW implements IAndroidManifestRW {
 		}
 	}
 
+	//TODO: test (no tests were made)
 	private void replaceNodesFromManifest(NodeList nodesToAdd, String NodesToRemove) throws XPathExpressionException, ManifestAddendumException {
 		NodeList removeList = this.getNodes(NodesToRemove);
 		for (int i = 0; i < removeList.getLength(); i++) {

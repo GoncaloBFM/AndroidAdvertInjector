@@ -6,17 +6,6 @@
 .implements Landroid/support/v4/widget/SlidingPaneLayout$SlidingPanelLayoutImpl;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/widget/SlidingPaneLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "SlidingPanelLayoutImplBase"
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -30,10 +19,8 @@
 
 
 # virtual methods
-.method public invalidateChildRegion(Landroid/support/v4/widget/SlidingPaneLayout;Landroid/view/View;)V
+.method public a(Landroid/support/v4/widget/SlidingPaneLayout;Landroid/view/View;)V
     .locals 4
-    .param p1, "parent"    # Landroid/support/v4/widget/SlidingPaneLayout;
-    .param p2, "child"    # Landroid/view/View;
 
     .prologue
     .line 1482
@@ -53,7 +40,7 @@
 
     move-result v3
 
-    invoke-static {p1, v0, v1, v2, v3}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;IIII)V
+    invoke-static {p1, v0, v1, v2, v3}, Landroid/support/v4/view/ViewCompat;->a(Landroid/view/View;IIII)V
 
     .line 1484
     return-void

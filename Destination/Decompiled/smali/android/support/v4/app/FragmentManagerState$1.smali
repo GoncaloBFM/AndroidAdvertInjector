@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/FragmentManagerState;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -32,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 390
+    .line 387
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,12 +31,11 @@
 
 
 # virtual methods
-.method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentManagerState;
+.method public a(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentManagerState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 392
+    .line 389
     new-instance v0, Landroid/support/v4/app/FragmentManagerState;
 
     invoke-direct {v0, p1}, Landroid/support/v4/app/FragmentManagerState;-><init>(Landroid/os/Parcel;)V
@@ -53,37 +43,34 @@
     return-object v0
 .end method
 
-.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+.method public a(I)[Landroid/support/v4/app/FragmentManagerState;
     .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
-    .line 390
-    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentManagerState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentManagerState;
+    .line 393
+    new-array v0, p1, [Landroid/support/v4/app/FragmentManagerState;
+
+    return-object v0
+.end method
+
+.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 387
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentManagerState$1;->a(Landroid/os/Parcel;)Landroid/support/v4/app/FragmentManagerState;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public newArray(I)[Landroid/support/v4/app/FragmentManagerState;
+.method public synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
     .prologue
-    .line 396
-    new-array v0, p1, [Landroid/support/v4/app/FragmentManagerState;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # I
-
-    .prologue
-    .line 390
-    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentManagerState$1;->newArray(I)[Landroid/support/v4/app/FragmentManagerState;
+    .line 387
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentManagerState$1;->a(I)[Landroid/support/v4/app/FragmentManagerState;
 
     move-result-object v0
 

@@ -3,17 +3,6 @@
 .source "ViewConfigurationCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/ViewConfigurationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "FroyoViewConfigurationVersionImpl"
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -27,13 +16,12 @@
 
 
 # virtual methods
-.method public getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
+.method public a(Landroid/view/ViewConfiguration;)I
     .locals 1
-    .param p1, "config"    # Landroid/view/ViewConfiguration;
 
     .prologue
     .line 56
-    invoke-static {p1}, Landroid/support/v4/view/ViewConfigurationCompatFroyo;->getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
+    invoke-static {p1}, Landroid/support/v4/view/ViewConfigurationCompatFroyo;->a(Landroid/view/ViewConfiguration;)I
 
     move-result v0
 

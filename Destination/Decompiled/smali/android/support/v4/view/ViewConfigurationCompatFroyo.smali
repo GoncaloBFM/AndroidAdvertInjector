@@ -14,9 +14,8 @@
     return-void
 .end method
 
-.method public static getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
+.method public static a(Landroid/view/ViewConfiguration;)I
     .locals 1
-    .param p0, "config"    # Landroid/view/ViewConfiguration;
 
     .prologue
     .line 26

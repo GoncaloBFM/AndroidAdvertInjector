@@ -4,15 +4,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/content/ModernAsyncTask;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4019
-    name = "Status"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -24,13 +15,13 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Landroid/support/v4/content/ModernAsyncTask$Status;
-
 .field public static final enum FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
 
 .field public static final enum PENDING:Landroid/support/v4/content/ModernAsyncTask$Status;
 
 .field public static final enum RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;
+
+.field private static final synthetic a:[Landroid/support/v4/content/ModernAsyncTask$Status;
 
 
 # direct methods
@@ -88,7 +79,7 @@
 
     aput-object v1, v0, v4
 
-    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->$VALUES:[Landroid/support/v4/content/ModernAsyncTask$Status;
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->a:[Landroid/support/v4/content/ModernAsyncTask$Status;
 
     return-void
 .end method
@@ -110,7 +101,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/v4/content/ModernAsyncTask$Status;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 89
@@ -130,7 +120,7 @@
 
     .prologue
     .line 89
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->$VALUES:[Landroid/support/v4/content/ModernAsyncTask$Status;
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->a:[Landroid/support/v4/content/ModernAsyncTask$Status;
 
     invoke-virtual {v0}, [Landroid/support/v4/content/ModernAsyncTask$Status;->clone()Ljava/lang/Object;
 

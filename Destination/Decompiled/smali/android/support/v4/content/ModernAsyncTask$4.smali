@@ -3,19 +3,8 @@
 .source "ModernAsyncTask.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/content/ModernAsyncTask;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
-
-
 # static fields
-.field static final synthetic $SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+.field static final synthetic a:[I
 
 
 # direct methods
@@ -32,10 +21,10 @@
 
     new-array v0, v0, [I
 
-    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->a:[I
 
     :try_start_0
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->a:[I
 
     sget-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;
 
@@ -51,7 +40,7 @@
 
     :goto_0
     :try_start_1
-    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->a:[I
 
     sget-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
 

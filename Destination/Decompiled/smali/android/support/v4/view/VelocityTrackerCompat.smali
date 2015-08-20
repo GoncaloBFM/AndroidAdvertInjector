@@ -3,18 +3,8 @@
 .source "VelocityTrackerCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/support/v4/view/VelocityTrackerCompat$HoneycombVelocityTrackerVersionImpl;,
-        Landroid/support/v4/view/VelocityTrackerCompat$BaseVelocityTrackerVersionImpl;,
-        Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
-    }
-.end annotation
-
-
 # static fields
-.field static final IMPL:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
+.field static final a:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
 
 
 # direct methods
@@ -34,7 +24,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/VelocityTrackerCompat$HoneycombVelocityTrackerVersionImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->IMPL:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
+    sput-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->a:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
 
     .line 72
     :goto_0
@@ -46,7 +36,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/VelocityTrackerCompat$BaseVelocityTrackerVersionImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->IMPL:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
+    sput-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->a:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
 
     goto :goto_0
 .end method
@@ -62,32 +52,28 @@
     return-void
 .end method
 
-.method public static getXVelocity(Landroid/view/VelocityTracker;I)F
+.method public static a(Landroid/view/VelocityTracker;I)F
     .locals 1
-    .param p0, "tracker"    # Landroid/view/VelocityTracker;
-    .param p1, "pointerId"    # I
 
     .prologue
     .line 82
-    sget-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->IMPL:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
+    sget-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->a:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;->getXVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;->a(Landroid/view/VelocityTracker;I)F
 
     move-result v0
 
     return v0
 .end method
 
-.method public static getYVelocity(Landroid/view/VelocityTracker;I)F
+.method public static b(Landroid/view/VelocityTracker;I)F
     .locals 1
-    .param p0, "tracker"    # Landroid/view/VelocityTracker;
-    .param p1, "pointerId"    # I
 
     .prologue
     .line 91
-    sget-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->IMPL:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
+    sget-object v0, Landroid/support/v4/view/VelocityTrackerCompat;->a:Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;->getYVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/VelocityTrackerCompat$VelocityTrackerVersionImpl;->b(Landroid/view/VelocityTracker;I)F
 
     move-result v0
 

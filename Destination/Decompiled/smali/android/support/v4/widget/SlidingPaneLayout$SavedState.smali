@@ -3,17 +3,6 @@
 .source "SlidingPaneLayout.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/widget/SlidingPaneLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "SavedState"
-.end annotation
-
-
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -28,7 +17,7 @@
 
 
 # instance fields
-.field isOpen:Z
+.field a:Z
 
 
 # direct methods
@@ -48,7 +37,6 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 1454
@@ -64,7 +52,7 @@
     const/4 v0, 0x1
 
     :goto_0
-    iput-boolean v0, p0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->isOpen:Z
+    iput-boolean v0, p0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->a:Z
 
     .line 1456
     return-void
@@ -78,8 +66,6 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/support/v4/widget/SlidingPaneLayout$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/Parcel;
-    .param p2, "x1"    # Landroid/support/v4/widget/SlidingPaneLayout$1;
 
     .prologue
     .line 1446
@@ -90,7 +76,6 @@
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .param p1, "superState"    # Landroid/os/Parcelable;
 
     .prologue
     .line 1450
@@ -104,15 +89,13 @@
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
     .prologue
     .line 1460
     invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1461
-    iget-boolean v0, p0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->isOpen:Z
+    iget-boolean v0, p0, Landroid/support/v4/widget/SlidingPaneLayout$SavedState;->a:Z
 
     if-eqz v0, :cond_0
 

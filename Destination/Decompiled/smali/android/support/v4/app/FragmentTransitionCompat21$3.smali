@@ -3,21 +3,10 @@
 .source "FragmentTransitionCompat21.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/app/FragmentTransitionCompat21;->setSharedElementEpicenter(Landroid/transition/Transition;Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
-
 # instance fields
-.field private mEpicenter:Landroid/graphics/Rect;
+.field final synthetic a:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
 
-.field final synthetic val$epicenterView:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
+.field private b:Landroid/graphics/Rect;
 
 
 # direct methods
@@ -25,8 +14,8 @@
     .locals 0
 
     .prologue
-    .line 211
-    iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$epicenterView:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
+    .line 207
+    iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->a:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
 
     invoke-direct {p0}, Landroid/transition/Transition$EpicenterCallback;-><init>()V
 
@@ -37,35 +26,33 @@
 # virtual methods
 .method public onGetEpicenter(Landroid/transition/Transition;)Landroid/graphics/Rect;
     .locals 1
-    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 216
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->mEpicenter:Landroid/graphics/Rect;
+    .line 212
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->b:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$epicenterView:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->a:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
 
-    iget-object v0, v0, Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;->epicenter:Landroid/view/View;
+    iget-object v0, v0, Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;->a:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 217
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$epicenterView:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
+    .line 213
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->a:Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;
 
-    iget-object v0, v0, Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;->epicenter:Landroid/view/View;
+    iget-object v0, v0, Landroid/support/v4/app/FragmentTransitionCompat21$EpicenterView;->a:Landroid/view/View;
 
-    # invokes: Landroid/support/v4/app/FragmentTransitionCompat21;->getBoundsOnScreen(Landroid/view/View;)Landroid/graphics/Rect;
-    invoke-static {v0}, Landroid/support/v4/app/FragmentTransitionCompat21;->access$100(Landroid/view/View;)Landroid/graphics/Rect;
+    invoke-static {v0}, Landroid/support/v4/app/FragmentTransitionCompat21;->b(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->mEpicenter:Landroid/graphics/Rect;
+    iput-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->b:Landroid/graphics/Rect;
 
-    .line 219
+    .line 215
     :cond_0
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->mEpicenter:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->b:Landroid/graphics/Rect;
 
     return-object v0
 .end method

@@ -1,4 +1,3 @@
-.field public static final activity_extra:I = 0x7f040026
 .class public final Lcom/jirbo/adcolony/R$layout;
 .super Ljava/lang/Object;
 .source "SourceFile"

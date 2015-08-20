@@ -4,15 +4,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/content/Loader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnLoadCompleteListener"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<D:",
@@ -24,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onLoadComplete(Landroid/support/v4/content/Loader;Ljava/lang/Object;)V
+.method public abstract a(Landroid/support/v4/content/Loader;Ljava/lang/Object;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

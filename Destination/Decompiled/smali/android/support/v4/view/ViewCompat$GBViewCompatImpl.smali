@@ -3,23 +3,12 @@
 .source "ViewCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/ViewCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "GBViewCompatImpl"
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0
 
     .prologue
-    .line 962
+    .line 741
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$EclairMr1ViewCompatImpl;-><init>()V
 
     return-void
@@ -27,28 +16,14 @@
 
 
 # virtual methods
-.method public getOverScrollMode(Landroid/view/View;)I
+.method public a(Landroid/view/View;)I
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 965
-    invoke-static {p1}, Landroid/support/v4/view/ViewCompatGingerbread;->getOverScrollMode(Landroid/view/View;)I
+    .line 744
+    invoke-static {p1}, Landroid/support/v4/view/ViewCompatGingerbread;->a(Landroid/view/View;)I
 
     move-result v0
 
     return v0
-.end method
-
-.method public setOverScrollMode(Landroid/view/View;I)V
-    .locals 0
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "mode"    # I
-
-    .prologue
-    .line 969
-    invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatGingerbread;->setOverScrollMode(Landroid/view/View;I)V
-
-    .line 970
-    return-void
 .end method

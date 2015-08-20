@@ -4,14 +4,14 @@
 
 
 # virtual methods
-.method public abstract getPlaybackPosition()J
+.method public abstract a()J
 .end method
 
-.method public abstract handleAudioFocusChange(I)V
+.method public abstract a(I)V
 .end method
 
-.method public abstract handleKey(Landroid/view/KeyEvent;)V
+.method public abstract a(J)V
 .end method
 
-.method public abstract playbackPositionUpdate(J)V
+.method public abstract a(Landroid/view/KeyEvent;)V
 .end method

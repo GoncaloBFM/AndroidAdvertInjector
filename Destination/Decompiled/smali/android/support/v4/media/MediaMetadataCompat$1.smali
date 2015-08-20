@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/MediaMetadataCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -32,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 548
+    .line 432
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,12 +31,11 @@
 
 
 # virtual methods
-.method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/MediaMetadataCompat;
+.method public a(Landroid/os/Parcel;)Landroid/support/v4/media/MediaMetadataCompat;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 551
+    .line 435
     new-instance v0, Landroid/support/v4/media/MediaMetadataCompat;
 
     const/4 v1, 0x0
@@ -55,37 +45,34 @@
     return-object v0
 .end method
 
-.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+.method public a(I)[Landroid/support/v4/media/MediaMetadataCompat;
     .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
-    .line 548
-    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaMetadataCompat$1;->createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/MediaMetadataCompat;
+    .line 440
+    new-array v0, p1, [Landroid/support/v4/media/MediaMetadataCompat;
+
+    return-object v0
+.end method
+
+.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 432
+    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaMetadataCompat$1;->a(Landroid/os/Parcel;)Landroid/support/v4/media/MediaMetadataCompat;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public newArray(I)[Landroid/support/v4/media/MediaMetadataCompat;
+.method public synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
     .prologue
-    .line 556
-    new-array v0, p1, [Landroid/support/v4/media/MediaMetadataCompat;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # I
-
-    .prologue
-    .line 548
-    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaMetadataCompat$1;->newArray(I)[Landroid/support/v4/media/MediaMetadataCompat;
+    .line 432
+    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaMetadataCompat$1;->a(I)[Landroid/support/v4/media/MediaMetadataCompat;
 
     move-result-object v0
 

@@ -81,7 +81,7 @@ public class AndroidPublicIdsRW extends XMLRW implements IAndroidPublicIdsRW {
 		}
 
 		private String getAndroidIdHexStringFromNode(Node node) {
-			return node.getAttributes().getNamedItem("id").getNodeValue();
+			return node.getAttributes().getNamedItem(ID_ATTRIBUTE_NAME).getNodeValue();
 		}
 
 		private String longToAndroidIdHexString(long id) {
@@ -89,7 +89,7 @@ public class AndroidPublicIdsRW extends XMLRW implements IAndroidPublicIdsRW {
 		}
 
 		private long getAvailableIdForResource(String resourceType) throws XPathExpressionException {
-			NodeList nodes = AndroidPublicIdsRW.this.getNodes(NODES + "/*[@type=\"" + resourceType + "\"]");
+			NodeList nodes = AndroidPublicIdsRW.this.getNodes(XPATH_TO_ADD_NODES + "[@" + TYPE_ATTRIBUTE_NAME + "=\"" + resourceType + "\"]");
 			Long currentValue = this.androidIdHexStringToLong(this.getAndroidIdHexStringFromNode(nodes.item(0)));
 			for (int i = 1; i < nodes.getLength(); i++) {
 				long newValue = this.androidIdHexStringToLong(this.getAndroidIdHexStringFromNode(nodes.item(i)));

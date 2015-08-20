@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
+.method public abstract a(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -26,7 +26,7 @@
     .end annotation
 .end method
 
-.method public abstract newArray(I)[Ljava/lang/Object;
+.method public abstract a(I)[Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)[TT;"

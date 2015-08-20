@@ -14,10 +14,20 @@
     return-void
 .end method
 
-.method public static metaStateHasModifiers(II)Z
+.method public static a(I)I
     .locals 1
-    .param p0, "metaState"    # I
-    .param p1, "modifiers"    # I
+
+    .prologue
+    .line 26
+    invoke-static {p0}, Landroid/view/KeyEvent;->normalizeMetaState(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static a(II)Z
+    .locals 1
 
     .prologue
     .line 30
@@ -28,26 +38,12 @@
     return v0
 .end method
 
-.method public static metaStateHasNoModifiers(I)Z
+.method public static b(I)Z
     .locals 1
-    .param p0, "metaState"    # I
 
     .prologue
     .line 34
     invoke-static {p0}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static normalizeMetaState(I)I
-    .locals 1
-    .param p0, "metaState"    # I
-
-    .prologue
-    .line 26
-    invoke-static {p0}, Landroid/view/KeyEvent;->normalizeMetaState(I)I
 
     move-result v0
 

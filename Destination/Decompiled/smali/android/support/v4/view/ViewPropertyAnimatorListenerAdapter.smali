@@ -19,29 +19,26 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/view/View;)V
+.method public a(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 48
+    .line 34
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/view/View;)V
+.method public b(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 41
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/view/View;)V
+.method public c(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 34
+    .line 48
     return-void
 .end method

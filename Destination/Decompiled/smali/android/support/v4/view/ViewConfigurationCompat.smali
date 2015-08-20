@@ -3,20 +3,8 @@
 .source "ViewConfigurationCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/support/v4/view/ViewConfigurationCompat$IcsViewConfigurationVersionImpl;,
-        Landroid/support/v4/view/ViewConfigurationCompat$HoneycombViewConfigurationVersionImpl;,
-        Landroid/support/v4/view/ViewConfigurationCompat$FroyoViewConfigurationVersionImpl;,
-        Landroid/support/v4/view/ViewConfigurationCompat$BaseViewConfigurationVersionImpl;,
-        Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
-    }
-.end annotation
-
-
 # static fields
-.field static final IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
+.field static final a:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
 
 
 # direct methods
@@ -36,7 +24,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/ViewConfigurationCompat$IcsViewConfigurationVersionImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
+    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->a:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
 
     .line 95
     :goto_0
@@ -55,7 +43,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/ViewConfigurationCompat$HoneycombViewConfigurationVersionImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
+    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->a:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
 
     goto :goto_0
 
@@ -72,7 +60,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/ViewConfigurationCompat$FroyoViewConfigurationVersionImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
+    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->a:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
 
     goto :goto_0
 
@@ -82,7 +70,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/ViewConfigurationCompat$BaseViewConfigurationVersionImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
+    sput-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->a:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
 
     goto :goto_0
 .end method
@@ -98,30 +86,14 @@
     return-void
 .end method
 
-.method public static getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
+.method public static a(Landroid/view/ViewConfiguration;)I
     .locals 1
-    .param p0, "config"    # Landroid/view/ViewConfiguration;
 
     .prologue
     .line 105
-    sget-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
+    sget-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->a:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;->getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static hasPermanentMenuKey(Landroid/view/ViewConfiguration;)Z
-    .locals 1
-    .param p0, "config"    # Landroid/view/ViewConfiguration;
-
-    .prologue
-    .line 113
-    sget-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->IMPL:Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;
-
-    invoke-interface {v0, p0}, Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;->hasPermanentMenuKey(Landroid/view/ViewConfiguration;)Z
+    invoke-interface {v0, p0}, Landroid/support/v4/view/ViewConfigurationCompat$ViewConfigurationVersionImpl;->a(Landroid/view/ViewConfiguration;)I
 
     move-result v0
 

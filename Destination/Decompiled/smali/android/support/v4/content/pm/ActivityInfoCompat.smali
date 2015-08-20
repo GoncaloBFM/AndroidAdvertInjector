@@ -3,10 +3,6 @@
 .source "ActivityInfoCompat.java"
 
 
-# static fields
-.field public static final CONFIG_UI_MODE:I = 0x200
-
-
 # direct methods
 .method private constructor <init>()V
     .locals 0

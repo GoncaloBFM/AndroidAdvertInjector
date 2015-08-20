@@ -3,19 +3,8 @@
 .source "TrafficStatsCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "SocketTags"
-.end annotation
-
-
 # instance fields
-.field public statsTag:I
+.field public a:I
 
 
 # direct methods
@@ -29,14 +18,13 @@
     .line 42
     const/4 v0, -0x1
 
-    iput v0, p0, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;->statsTag:I
+    iput v0, p0, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;->a:I
 
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v4/net/TrafficStatsCompat$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/support/v4/net/TrafficStatsCompat$1;
 
     .prologue
     .line 41

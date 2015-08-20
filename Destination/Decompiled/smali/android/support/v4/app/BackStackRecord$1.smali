@@ -6,21 +6,10 @@
 .implements Landroid/support/v4/app/FragmentTransitionCompat21$ViewRetriever;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/app/BackStackRecord;->configureTransitions(ILandroid/support/v4/app/BackStackRecord$TransitionState;ZLandroid/util/SparseArray;Landroid/util/SparseArray;)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroid/support/v4/app/BackStackRecord;
+.field final synthetic a:Landroid/support/v4/app/Fragment;
 
-.field final synthetic val$inFragment:Landroid/support/v4/app/Fragment;
+.field final synthetic b:Landroid/support/v4/app/BackStackRecord;
 
 
 # direct methods
@@ -29,9 +18,9 @@
 
     .prologue
     .line 1186
-    iput-object p1, p0, Landroid/support/v4/app/BackStackRecord$1;->this$0:Landroid/support/v4/app/BackStackRecord;
+    iput-object p1, p0, Landroid/support/v4/app/BackStackRecord$1;->b:Landroid/support/v4/app/BackStackRecord;
 
-    iput-object p2, p0, Landroid/support/v4/app/BackStackRecord$1;->val$inFragment:Landroid/support/v4/app/Fragment;
+    iput-object p2, p0, Landroid/support/v4/app/BackStackRecord$1;->a:Landroid/support/v4/app/Fragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,12 +29,12 @@
 
 
 # virtual methods
-.method public getView()Landroid/view/View;
+.method public a()Landroid/view/View;
     .locals 1
 
     .prologue
     .line 1189
-    iget-object v0, p0, Landroid/support/v4/app/BackStackRecord$1;->val$inFragment:Landroid/support/v4/app/Fragment;
+    iget-object v0, p0, Landroid/support/v4/app/BackStackRecord$1;->a:Landroid/support/v4/app/Fragment;
 
     invoke-virtual {v0}, Landroid/support/v4/app/Fragment;->getView()Landroid/view/View;
 

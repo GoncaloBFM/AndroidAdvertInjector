@@ -3,23 +3,12 @@
 .source "ViewPager.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/ViewPager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnPageChangeListener"
-.end annotation
-
-
 # virtual methods
-.method public abstract onPageScrollStateChanged(I)V
+.method public abstract a(I)V
 .end method
 
-.method public abstract onPageScrolled(IFI)V
+.method public abstract a(IFI)V
 .end method
 
-.method public abstract onPageSelected(I)V
+.method public abstract b(I)V
 .end method

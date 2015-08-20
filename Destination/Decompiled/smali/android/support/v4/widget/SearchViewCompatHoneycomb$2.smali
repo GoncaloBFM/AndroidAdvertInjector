@@ -6,19 +6,8 @@
 .implements Landroid/widget/SearchView$OnCloseListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/widget/SearchViewCompatHoneycomb;->newOnCloseListener(Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;)Ljava/lang/Object;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic val$listener:Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;
+.field final synthetic a:Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;
 
 
 # direct methods
@@ -27,7 +16,7 @@
 
     .prologue
     .line 71
-    iput-object p1, p0, Landroid/support/v4/widget/SearchViewCompatHoneycomb$2;->val$listener:Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;
+    iput-object p1, p0, Landroid/support/v4/widget/SearchViewCompatHoneycomb$2;->a:Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,7 +30,7 @@
 
     .prologue
     .line 74
-    iget-object v0, p0, Landroid/support/v4/widget/SearchViewCompatHoneycomb$2;->val$listener:Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;
+    iget-object v0, p0, Landroid/support/v4/widget/SearchViewCompatHoneycomb$2;->a:Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;
 
     invoke-interface {v0}, Landroid/support/v4/widget/SearchViewCompatHoneycomb$OnCloseListenerCompatBridge;->onClose()Z
 

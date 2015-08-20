@@ -6,23 +6,12 @@
 .implements Landroid/view/animation/Interpolator;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/ViewPager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0
 
     .prologue
-    .line 129
+    .line 128
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,25 +20,24 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 2
-    .param p1, "t"    # F
+    .locals 3
 
     .prologue
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    .line 130
+    sub-float v0, p1, v2
 
     .line 131
-    sub-float/2addr p1, v1
+    mul-float v1, v0, v0
 
-    .line 132
-    mul-float v0, p1, p1
+    mul-float/2addr v1, v0
 
-    mul-float/2addr v0, p1
+    mul-float/2addr v1, v0
 
-    mul-float/2addr v0, p1
+    mul-float/2addr v0, v1
 
-    mul-float/2addr v0, p1
-
-    add-float/2addr v0, v1
+    add-float/2addr v0, v2
 
     return v0
 .end method

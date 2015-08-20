@@ -3,29 +3,13 @@
 .source "PagerTitleStripIcs.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/PagerTitleStripIcs;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "SingleLineAllCapsTransform"
-.end annotation
-
-
-# static fields
-.field private static final TAG:Ljava/lang/String; = "SingleLineAllCapsTransform"
-
-
 # instance fields
-.field private mLocale:Ljava/util/Locale;
+.field private a:Ljava/util/Locale;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 36
@@ -42,7 +26,7 @@
 
     iget-object v0, v0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    iput-object v0, p0, Landroid/support/v4/view/PagerTitleStripIcs$SingleLineAllCapsTransform;->mLocale:Ljava/util/Locale;
+    iput-object v0, p0, Landroid/support/v4/view/PagerTitleStripIcs$SingleLineAllCapsTransform;->a:Ljava/util/Locale;
 
     .line 38
     return-void
@@ -52,23 +36,21 @@
 # virtual methods
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
     .locals 2
-    .param p1, "source"    # Ljava/lang/CharSequence;
-    .param p2, "view"    # Landroid/view/View;
 
     .prologue
     .line 42
     invoke-super {p0, p1, p2}, Landroid/text/method/SingleLineTransformationMethod;->getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 43
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/support/v4/view/PagerTitleStripIcs$SingleLineAllCapsTransform;->mLocale:Ljava/util/Locale;
+    iget-object v1, p0, Landroid/support/v4/view/PagerTitleStripIcs$SingleLineAllCapsTransform;->a:Ljava/util/Locale;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 

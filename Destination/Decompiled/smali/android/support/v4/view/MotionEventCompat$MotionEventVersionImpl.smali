@@ -3,38 +3,18 @@
 .source "MotionEventCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/MotionEventCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "MotionEventVersionImpl"
-.end annotation
-
-
 # virtual methods
-.method public abstract findPointerIndex(Landroid/view/MotionEvent;I)I
+.method public abstract a(Landroid/view/MotionEvent;)I
 .end method
 
-.method public abstract getAxisValue(Landroid/view/MotionEvent;I)F
+.method public abstract a(Landroid/view/MotionEvent;I)I
 .end method
 
-.method public abstract getAxisValue(Landroid/view/MotionEvent;II)F
+.method public abstract b(Landroid/view/MotionEvent;I)I
 .end method
 
-.method public abstract getPointerCount(Landroid/view/MotionEvent;)I
+.method public abstract c(Landroid/view/MotionEvent;I)F
 .end method
 
-.method public abstract getPointerId(Landroid/view/MotionEvent;I)I
-.end method
-
-.method public abstract getSource(Landroid/view/MotionEvent;)I
-.end method
-
-.method public abstract getX(Landroid/view/MotionEvent;I)F
-.end method
-
-.method public abstract getY(Landroid/view/MotionEvent;I)F
+.method public abstract d(Landroid/view/MotionEvent;I)F
 .end method

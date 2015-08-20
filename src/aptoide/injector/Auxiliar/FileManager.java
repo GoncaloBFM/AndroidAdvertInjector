@@ -6,6 +6,7 @@ import org.apache.commons.io.FilenameUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
@@ -47,7 +48,6 @@ public class FileManager {
 		FileUtils.copyDirectory(source, destination);
 	}
 
-
 	public static LinkedList<File> mergeCopyDirectory(File source, File destination) throws IOException {
 
 		if (!source.isDirectory()) {
@@ -61,13 +61,15 @@ public class FileManager {
 		sourcePaths.removeFirst();
 
 		for (File fileToCopy : sourcePaths){
-			addedFiles.add(fileToCopy);
 			String pathDestination = replacePaths(fileToCopy.getAbsolutePath(), source.getAbsolutePath(), destination.getAbsolutePath());
 			File fileDestination = new File(pathDestination);
+			addedFiles.add(fileDestination);
 			try {
 				Files.copy(fileToCopy.toPath(), fileDestination.toPath());
+				//System.out.println("SUCC  " + fileToCopy.getAbsolutePath() + "    --->   " + fileDestination);
 			} catch (IOException e) {
-				if (!(fileDestination.isDirectory() && fileToCopy.isDirectory())) throw e;
+				System.out.println("FAIL  " + fileToCopy.getAbsolutePath() + "    --->   " + fileDestination);
+				//if (!(fileDestination.isDirectory() && fileToCopy.isDirectory())) throw e;
 			}
 		}
 		return addedFiles;
@@ -78,7 +80,7 @@ public class FileManager {
 		return pathToAdd + path.substring(sourcePathSize);
 	}
 
-	//TODO: optimize (addAll implementation is slwo)
+	//TODO: optimize (addAll implementation is slow)
 	public static LinkedList<File> getAllElements(File source){
 		LinkedList<File> list = new LinkedList<File>();
 
@@ -92,6 +94,7 @@ public class FileManager {
 		return list;
 	}
 
+
 	public static void copyElements(File[] elements, File destination) throws IOException {
 		for (File element : elements) {
 			copyElement(element, destination);
@@ -99,6 +102,7 @@ public class FileManager {
 	}
 
 	public static void copyElement(File element, File destination) throws IOException {
+		System.out.println(element.getName() + "  ->  " + destination.getName());
 		if (element.isDirectory()) {
 			copyDirectory(element, destination);
 		} else {

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="abc_max_action_buttons">2</integer>
-    <integer name="abc_config_activityDefaultDur">220</integer>
-    <integer name="abc_config_activityShortDur">150</integer>
-    <integer name="cancel_button_image_alpha">127</integer>
-    <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer name="dot_view_top_dp">84</integer>
+    <integer name="applock_pattern_layout_weight">2</integer>
+    <integer name="google_play_services_version">7095000</integer>
+    <integer name="ss_charging_dot_duration">200</integer>
+    <integer name="ss_charging_dot_still_duration">500</integer>
+    <integer name="ss_lyt_show_up_duration">1500</integer>
+    <integer name="ss_lyt_show_up_start_delay">500</integer>
 </resources>

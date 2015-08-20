@@ -6,33 +6,8 @@
 .implements Landroid/view/ViewTreeObserver$OnWindowAttachListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/TransportMediatorJellybeanMR2;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
-
-
-# direct methods
-.method constructor <init>(Landroid/support/v4/media/TransportMediatorJellybeanMR2;)V
-    .locals 0
-
-    .prologue
-    .line 42
-    iput-object p1, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$1;->this$0:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.field final synthetic a:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
 
 
 # virtual methods
@@ -41,9 +16,9 @@
 
     .prologue
     .line 45
-    iget-object v0, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$1;->this$0:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
+    iget-object v0, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$1;->a:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
 
-    invoke-virtual {v0}, Landroid/support/v4/media/TransportMediatorJellybeanMR2;->windowAttached()V
+    invoke-virtual {v0}, Landroid/support/v4/media/TransportMediatorJellybeanMR2;->a()V
 
     .line 46
     return-void
@@ -54,9 +29,9 @@
 
     .prologue
     .line 49
-    iget-object v0, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$1;->this$0:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
+    iget-object v0, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$1;->a:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
 
-    invoke-virtual {v0}, Landroid/support/v4/media/TransportMediatorJellybeanMR2;->windowDetached()V
+    invoke-virtual {v0}, Landroid/support/v4/media/TransportMediatorJellybeanMR2;->f()V
 
     .line 50
     return-void

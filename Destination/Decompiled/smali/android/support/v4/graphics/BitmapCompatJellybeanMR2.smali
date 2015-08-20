@@ -13,29 +13,3 @@
 
     return-void
 .end method
-
-.method public static hasMipMap(Landroid/graphics/Bitmap;)Z
-    .locals 1
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
-
-    .prologue
-    .line 22
-    invoke-virtual {p0}, Landroid/graphics/Bitmap;->hasMipMap()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static setHasMipMap(Landroid/graphics/Bitmap;Z)V
-    .locals 0
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p1, "hasMipMap"    # Z
-
-    .prologue
-    .line 26
-    invoke-virtual {p0, p1}, Landroid/graphics/Bitmap;->setHasMipMap(Z)V
-
-    .line 27
-    return-void
-.end method

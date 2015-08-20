@@ -3,77 +3,51 @@
 .source "FragmentManager.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/support/v4/app/FragmentManager$OnBackStackChangedListener;,
-        Landroid/support/v4/app/FragmentManager$BackStackEntry;
-    }
-.end annotation
-
-
-# static fields
-.field public static final POP_BACK_STACK_INCLUSIVE:I = 0x1
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 70
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 127
-    return-void
-.end method
-
-.method public static enableDebugLogging(Z)V
-    .locals 0
-    .param p0, "enabled"    # Z
-
-    .prologue
-    .line 361
-    sput-boolean p0, Landroid/support/v4/app/FragmentManagerImpl;->DEBUG:Z
-
-    .line 362
+    .line 124
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract addOnBackStackChangedListener(Landroid/support/v4/app/FragmentManager$OnBackStackChangedListener;)V
+.method public abstract a(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/Fragment$SavedState;
 .end method
 
-.method public abstract beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+.method public abstract a(I)Landroid/support/v4/app/Fragment;
 .end method
 
-.method public abstract dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+.method public abstract a(Landroid/os/Bundle;Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 .end method
 
-.method public abstract executePendingTransactions()Z
+.method public abstract a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 .end method
 
-.method public abstract findFragmentById(I)Landroid/support/v4/app/Fragment;
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
+.method public abstract a()Landroid/support/v4/app/FragmentTransaction;
 .end method
 
-.method public abstract findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+.method public abstract a(II)V
 .end method
 
-.method public abstract getBackStackEntryAt(I)Landroid/support/v4/app/FragmentManager$BackStackEntry;
+.method public abstract a(Landroid/os/Bundle;Ljava/lang/String;Landroid/support/v4/app/Fragment;)V
 .end method
 
-.method public abstract getBackStackEntryCount()I
+.method public abstract b()Z
 .end method
 
-.method public abstract getFragment(Landroid/os/Bundle;Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+.method public abstract c()Z
 .end method
 
-.method public abstract getFragments()Ljava/util/List;
+.method public abstract d()I
+.end method
+
+.method public abstract e()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -83,48 +57,4 @@
             ">;"
         }
     .end annotation
-.end method
-
-.method public abstract isDestroyed()Z
-.end method
-
-.method public openTransaction()Landroid/support/v4/app/FragmentTransaction;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    .prologue
-    .line 152
-    invoke-virtual {p0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public abstract popBackStack()V
-.end method
-
-.method public abstract popBackStack(II)V
-.end method
-
-.method public abstract popBackStack(Ljava/lang/String;I)V
-.end method
-
-.method public abstract popBackStackImmediate()Z
-.end method
-
-.method public abstract popBackStackImmediate(II)Z
-.end method
-
-.method public abstract popBackStackImmediate(Ljava/lang/String;I)Z
-.end method
-
-.method public abstract putFragment(Landroid/os/Bundle;Ljava/lang/String;Landroid/support/v4/app/Fragment;)V
-.end method
-
-.method public abstract removeOnBackStackChangedListener(Landroid/support/v4/app/FragmentManager$OnBackStackChangedListener;)V
-.end method
-
-.method public abstract saveFragmentInstanceState(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/Fragment$SavedState;
 .end method

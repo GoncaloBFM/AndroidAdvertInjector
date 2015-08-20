@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/ViewPager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -32,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 122
+    .line 121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,36 +31,30 @@
 
 
 # virtual methods
-.method public compare(Landroid/support/v4/view/ViewPager$ItemInfo;Landroid/support/v4/view/ViewPager$ItemInfo;)I
+.method public a(Landroid/support/v4/view/ViewPager$ItemInfo;Landroid/support/v4/view/ViewPager$ItemInfo;)I
     .locals 2
-    .param p1, "lhs"    # Landroid/support/v4/view/ViewPager$ItemInfo;
-    .param p2, "rhs"    # Landroid/support/v4/view/ViewPager$ItemInfo;
 
     .prologue
-    .line 125
-    iget v0, p1, Landroid/support/v4/view/ViewPager$ItemInfo;->position:I
+    .line 124
+    iget v0, p1, Landroid/support/v4/view/ViewPager$ItemInfo;->b:I
 
-    iget v1, p2, Landroid/support/v4/view/ViewPager$ItemInfo;->position:I
+    iget v1, p2, Landroid/support/v4/view/ViewPager$ItemInfo;->b:I
 
     sub-int/2addr v0, v1
 
     return v0
 .end method
 
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+.method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
-    .line 122
+    .line 121
     check-cast p1, Landroid/support/v4/view/ViewPager$ItemInfo;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/support/v4/view/ViewPager$ItemInfo;
 
-    .end local p2    # "x1":Ljava/lang/Object;
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/view/ViewPager$1;->compare(Landroid/support/v4/view/ViewPager$ItemInfo;Landroid/support/v4/view/ViewPager$ItemInfo;)I
+    invoke-virtual {p0, p1, p2}, Landroid/support/v4/view/ViewPager$1;->a(Landroid/support/v4/view/ViewPager$ItemInfo;Landroid/support/v4/view/ViewPager$ItemInfo;)I
 
     move-result v0
 

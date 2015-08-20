@@ -32,7 +32,7 @@
     .line 35
     new-instance v0, Landroid/content/Intent;
 
-    const-class v1, Laptoide/cm/testapp/MainActivity;
+    const-class v1, Lcom/keniu/security/main/MainActivity;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
@@ -55,7 +55,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 14
-    const v0, 0x7f040026
+    const v0, 0x7f030418
 
     invoke-virtual {p0, v0}, Laptoide/cm/adcolonydecompile/ExtraActivity;->setContentView(I)V
 

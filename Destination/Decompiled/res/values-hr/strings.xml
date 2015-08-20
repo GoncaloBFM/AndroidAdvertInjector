@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="abc_action_bar_home_description">Idi na početnu</string>
-    <string name="abc_action_bar_up_description">Idi gore</string>
-    <string name="abc_action_menu_overflow_description">Dodatne opcije</string>
-    <string name="abc_action_mode_done">Gotovo</string>
-    <string name="abc_activity_chooser_view_see_all">Prikaži sve</string>
-    <string name="abc_activitychooserview_choose_application">Odabir aplikacije</string>
-    <string name="abc_searchview_description_clear">Izbriši upit</string>
-    <string name="abc_searchview_description_query">Upit za pretraživanje</string>
-    <string name="abc_searchview_description_search">Pretraživanje</string>
-    <string name="abc_searchview_description_submit">Pošalji upit</string>
-    <string name="abc_searchview_description_voice">Glasovno pretraživanje</string>
-    <string name="abc_shareactionprovider_share_with">Dijeljenje sa</string>
-    <string name="abc_shareactionprovider_share_with_application">Dijeljenje sa: %s</string>
+    <string name="action_settings">Postavke</string>
+    <string name="app_name">FloatISwipe</string>
+    <string name="fl_tag_applications">Omiljene</string>
+    <string name="fl_tag_recently">Nedavne</string>
+    <string name="fl_tag_switchers">Alatna kutija</string>
+    <string name="float_controller_volumeController_ring">Vibriranje</string>
+    <string name="float_controller_volumeController_silent">Utišan način</string>
+    <string name="float_controller_volumeController_vibration_ring">Zvono I Vibriranje</string>
+    <string name="float_toast_template_auto_screenout_1_min">Spavanje nakon &lt;font color=#00914c >%1$s min&lt;/font> neaktivnosti</string>
+    <string name="float_toast_template_auto_screenout_min">Spavanje nakon &lt;font color=#00914c >%1$s min&lt;/font> neaktivnosti</string>
+    <string name="float_toast_template_auto_screenout_sec">Spavanje nakon &lt;font color=#00914c >%1$s s&lt;/font> neaktivnosti</string>
+    <string name="float_toast_template_brightness_auto">AUTOMATSKI</string>
+    <string name="float_toast_template_brightness_r2">Svjetlost: &lt;font color=#00914c >%1$s&lt;/font></string>
+    <string name="float_toast_template_off">%1$s : &lt;font color=#dc463a >OFF&lt;/font></string>
+    <string name="float_toast_template_on">%1$s : &lt;font color=#00914c >ON&lt;/font></string>
+    <string name="float_type_airplane">Zrakoplov</string>
+    <string name="float_type_auto_screenoff">Spavanje</string>
+    <string name="float_type_bright">Svjetlina</string>
+    <string name="float_type_calc">Kalkulator</string>
+    <string name="float_type_camera">Kamera</string>
+    <string name="float_type_data">Podaci</string>
+    <string name="float_type_feedback_vibrate">Haptika</string>
+    <string name="float_type_gps">GPS</string>
+    <string name="float_type_light">Baterijska Svjetiljka</string>
+    <string name="float_type_ring">Zvono</string>
+    <string name="float_type_rotation">Automatska Rotacija</string>
+    <string name="float_type_silent">Utišano</string>
+    <string name="float_type_swipesetting">Postavljanje</string>
+    <string name="float_type_vibration">Vibracija</string>
+    <string name="float_type_wifi">Wi-Fi</string>
+    <string name="hello_world">Pozdrav, svijete!</string>
+    <string name="multi_lang_loading_progress"> %d%%</string>
+    <string name="multi_lang_loading_title">Otvaram jezični resursi</string>
+    <string name="notif_memory_txt">Ubrzaj</string>
+    <string name="notif_settings_txt">Postavke</string>
+    <string name="swipe_abuse_tip_cancel">Ne</string>
+    <string name="swipe_abuse_tip_msg">Ne ometaj: želite li onemogućiti iSwipe u %1$s?</string>
+    <string name="swipe_abuse_tip_toast">Možete poništiti ovo blokiranje u postavkama.</string>
+    <string name="swipe_abuse_tip_yes">Da</string>
+    <string name="swipe_access_service_desc">Ova se usluga upotrebljava samo za primanje informacija s trećih strana. Neće prikupljati nikakve podatke.</string>
+    <string name="swipe_guide_btn_enable">OMOGUĆI</string>
+    <string name="swipe_guide_btn_start">Preskoči</string>
+    <string name="swipe_guide_float_tip_alter_window">Pritisnite \"Prikaz skočnog prozora\"</string>
+    <string name="swipe_guide_float_tip_enable">Molimo vas da pronađete Clean Master i omogućite uslugu.</string>
+    <string name="swipe_guide_float_tip_usage_stat">Molimo vas da pronađete Clean Master i označite ga.</string>
+    <string name="swipe_guide_mask_cancle">Odustani</string>
+    <string name="swipe_guide_mask_enable">Omogući</string>
+    <string name="swipe_guide_mask_tips">Omogućite obavijesti i nikad ne propustite poruke od prijatelja!</string>
+    <string name="swipe_logo_desc">Sve nadohvat ruke</string>
+    <string name="swipe_logo_txt">iSwipe</string>
+    <string name="swipe_open_message_tips">Omogućite obavijesti</string>
+    <string name="swipe_with_finger">Kliznite jednim prstom</string>
 </resources>

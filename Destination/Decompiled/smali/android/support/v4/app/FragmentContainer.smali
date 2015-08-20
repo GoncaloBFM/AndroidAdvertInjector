@@ -4,14 +4,8 @@
 
 
 # virtual methods
-.method public abstract findViewById(I)Landroid/view/View;
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
+.method public abstract a(I)Landroid/view/View;
 .end method
 
-.method public abstract hasView()Z
+.method public abstract a()Z
 .end method

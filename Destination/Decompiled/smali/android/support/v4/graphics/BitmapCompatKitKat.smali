@@ -13,16 +13,3 @@
 
     return-void
 .end method
-
-.method static getAllocationByteCount(Landroid/graphics/Bitmap;)I
-    .locals 1
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
-
-    .prologue
-    .line 26
-    invoke-virtual {p0}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
-
-    move-result v0
-
-    return v0
-.end method

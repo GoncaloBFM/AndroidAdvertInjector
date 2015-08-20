@@ -1,5 +1,6 @@
 package aptoide.injector;
 
+import aptoide.injector.Auxiliar.FileManager;
 import aptoide.injector.Decompiler.*;
 import aptoide.injector.Modifier.IModifier;
 import aptoide.injector.Modifier.Modifier;
@@ -12,12 +13,14 @@ import aptoide.injector.Signer.Signer;
 import aptoide.injector.Signer.SignerException;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by gbfm on 8/5/15.
  */
 public class Injector {
 	private static final String DECOMPILER_TARGET_FULL_DIRECTORY_PATH = Paths.DECOMPILER_TARGET_FULL_DIRECTORY_PATH;
+	private static final String DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH = Paths.DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH;
 	private static final String RECOMPILED_APK_FULL_PATH = Paths.RECOMPILED_APK_FULL_PATH;
 
 	private IDecompiler decompiler;
@@ -32,10 +35,25 @@ public class Injector {
 		this.signer = new Signer();
 	}
 
+	private void backupDecompile() {
+		File originalDecompile = new File(DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH);
+		try {
+			FileManager.purgeDirectory(originalDecompile);
+			FileManager.mergeCopyDirectory(new File(DECOMPILER_TARGET_FULL_DIRECTORY_PATH), originalDecompile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	public String inject(String apkFullPath, String destinationFullPath) throws DecompilerException, ModifierException, RecompilerException, SignerException {
 
 		System.out.println("Starting decompiler...");
 		System.out.println(this.decompile(apkFullPath, DECOMPILER_TARGET_FULL_DIRECTORY_PATH));
+
+		System.out.println("Making backup of decompiled files\n\n");
+		this.backupDecompile();
+
 		System.out.println("Starting modifier\n\n");
 		this.modifyFiles(DECOMPILER_TARGET_FULL_DIRECTORY_PATH);
 		System.out.println("Starting recompiler...");

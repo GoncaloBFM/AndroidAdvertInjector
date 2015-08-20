@@ -3,10 +3,6 @@
 .source "NotificationManagerCompatIceCreamSandwich.java"
 
 
-# static fields
-.field static final SIDE_CHANNEL_BIND_FLAGS:I = 0x21
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0

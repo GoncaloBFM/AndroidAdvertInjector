@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/app/FragmentManagerImpl;->popBackStack(II)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroid/support/v4/app/FragmentManagerImpl;
+.field final synthetic a:I
 
-.field final synthetic val$flags:I
+.field final synthetic b:I
 
-.field final synthetic val$id:I
+.field final synthetic c:Landroid/support/v4/app/FragmentManagerImpl;
 
 
 # direct methods
@@ -30,12 +19,12 @@
     .locals 0
 
     .prologue
-    .line 530
-    iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+    .line 526
+    iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->c:Landroid/support/v4/app/FragmentManagerImpl;
 
-    iput p2, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$id:I
+    iput p2, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->a:I
 
-    iput p3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$flags:I
+    iput p3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->b:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,23 +37,23 @@
     .locals 5
 
     .prologue
-    .line 532
-    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+    .line 528
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->c:Landroid/support/v4/app/FragmentManagerImpl;
 
-    iget-object v1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+    iget-object v1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->c:Landroid/support/v4/app/FragmentManagerImpl;
 
-    iget-object v1, v1, Landroid/support/v4/app/FragmentManagerImpl;->mActivity:Landroid/support/v4/app/FragmentActivity;
+    iget-object v1, v1, Landroid/support/v4/app/FragmentManagerImpl;->o:Landroid/support/v4/app/FragmentActivity;
 
     iget-object v1, v1, Landroid/support/v4/app/FragmentActivity;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x0
 
-    iget v3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$id:I
+    iget v3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->a:I
 
-    iget v4, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$flags:I
+    iget v4, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->b:I
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/support/v4/app/FragmentManagerImpl;->popBackStackState(Landroid/os/Handler;Ljava/lang/String;II)Z
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/support/v4/app/FragmentManagerImpl;->a(Landroid/os/Handler;Ljava/lang/String;II)Z
 
-    .line 533
+    .line 529
     return-void
 .end method

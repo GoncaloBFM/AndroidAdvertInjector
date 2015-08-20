@@ -55,7 +55,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 14
-    const v0, 0x7f040026
+    const v0, 0x7f040019
 
     invoke-virtual {p0, v0}, Laptoide/cm/adcolonydecompile/ExtraActivity;->setContentView(I)V
 

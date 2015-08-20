@@ -4,15 +4,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/routing/MediaRouterJellybean;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "CallbackProxy"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
@@ -24,7 +15,7 @@
 
 
 # instance fields
-.field protected final mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+.field protected final a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -33,41 +24,15 @@
 .end field
 
 
-# direct methods
-.method public constructor <init>(Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 367
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    .local p1, "callback":Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;, "TT;"
-    invoke-direct {p0}, Landroid/media/MediaRouter$Callback;-><init>()V
-
-    .line 368
-    iput-object p1, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
-
-    .line 369
-    return-void
-.end method
-
-
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 386
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteAdded(Ljava/lang/Object;)V
+    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->a(Ljava/lang/Object;)V
 
     .line 387
     return-void
@@ -75,15 +40,12 @@
 
 .method public onRouteChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 398
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteChanged(Ljava/lang/Object;)V
+    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->c(Ljava/lang/Object;)V
 
     .line 399
     return-void
@@ -91,17 +53,12 @@
 
 .method public onRouteGrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;I)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
-    .param p3, "group"    # Landroid/media/MediaRouter$RouteGroup;
-    .param p4, "index"    # I
 
     .prologue
     .line 405
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2, p3, p4}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteGrouped(Ljava/lang/Object;Ljava/lang/Object;I)V
+    invoke-interface {v0, p2, p3, p4}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->a(Ljava/lang/Object;Ljava/lang/Object;I)V
 
     .line 406
     return-void
@@ -109,15 +66,12 @@
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 392
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteRemoved(Ljava/lang/Object;)V
+    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->b(Ljava/lang/Object;)V
 
     .line 393
     return-void
@@ -125,16 +79,12 @@
 
 .method public onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "type"    # I
-    .param p3, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 374
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2, p3}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteSelected(ILjava/lang/Object;)V
+    invoke-interface {v0, p2, p3}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->a(ILjava/lang/Object;)V
 
     .line 375
     return-void
@@ -142,16 +92,12 @@
 
 .method public onRouteUngrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
-    .param p3, "group"    # Landroid/media/MediaRouter$RouteGroup;
 
     .prologue
     .line 412
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2, p3}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteUngrouped(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v0, p2, p3}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->a(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 413
     return-void
@@ -159,16 +105,12 @@
 
 .method public onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "type"    # I
-    .param p3, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 380
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2, p3}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteUnselected(ILjava/lang/Object;)V
+    invoke-interface {v0, p2, p3}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->b(ILjava/lang/Object;)V
 
     .line 381
     return-void
@@ -176,15 +118,12 @@
 
 .method public onRouteVolumeChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 418
-    .local p0, "this":Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;, "Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->mCallback:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
+    iget-object v0, p0, Landroid/support/v4/media/routing/MediaRouterJellybean$CallbackProxy;->a:Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;
 
-    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->onRouteVolumeChanged(Ljava/lang/Object;)V
+    invoke-interface {v0, p2}, Landroid/support/v4/media/routing/MediaRouterJellybean$Callback;->d(Ljava/lang/Object;)V
 
     .line 419
     return-void

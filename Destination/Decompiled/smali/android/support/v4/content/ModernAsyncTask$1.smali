@@ -6,19 +6,8 @@
 .implements Ljava/util/concurrent/ThreadFactory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/content/ModernAsyncTask;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
-
 # instance fields
-.field private final mCount:Ljava/util/concurrent/atomic/AtomicInteger;
+.field private final a:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # direct methods
@@ -36,7 +25,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask$1;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask$1;->a:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-void
 .end method
@@ -45,7 +34,6 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 3
-    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 58
@@ -61,7 +49,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/support/v4/content/ModernAsyncTask$1;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v2, p0, Landroid/support/v4/content/ModernAsyncTask$1;->a:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 

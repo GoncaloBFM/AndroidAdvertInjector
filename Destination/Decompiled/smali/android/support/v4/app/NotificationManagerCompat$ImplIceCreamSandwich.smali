@@ -3,17 +3,6 @@
 .source "NotificationManagerCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/NotificationManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "ImplIceCreamSandwich"
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -27,7 +16,7 @@
 
 
 # virtual methods
-.method public getSideChannelBindFlags()I
+.method public a()I
     .locals 1
 
     .prologue

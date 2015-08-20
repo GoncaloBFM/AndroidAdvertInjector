@@ -3,35 +3,24 @@
 .source "BackStackRecord.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/app/BackStackRecord;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = "Op"
-.end annotation
-
-
 # instance fields
-.field cmd:I
+.field a:Landroid/support/v4/app/BackStackRecord$Op;
 
-.field enterAnim:I
+.field b:Landroid/support/v4/app/BackStackRecord$Op;
 
-.field exitAnim:I
+.field c:I
 
-.field fragment:Landroid/support/v4/app/Fragment;
+.field d:Landroid/support/v4/app/Fragment;
 
-.field next:Landroid/support/v4/app/BackStackRecord$Op;
+.field e:I
 
-.field popEnterAnim:I
+.field f:I
 
-.field popExitAnim:I
+.field g:I
 
-.field prev:Landroid/support/v4/app/BackStackRecord$Op;
+.field h:I
 
-.field removed:Ljava/util/ArrayList;
+.field i:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -48,7 +37,7 @@
     .locals 0
 
     .prologue
-    .line 207
+    .line 206
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

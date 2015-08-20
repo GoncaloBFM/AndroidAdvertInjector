@@ -4,15 +4,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/ThreadLocal",
@@ -24,7 +15,7 @@
 
 
 # instance fields
-.field final synthetic this$0:Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
+.field final synthetic a:Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
 
 
 # direct methods
@@ -33,7 +24,7 @@
 
     .prologue
     .line 45
-    iput-object p1, p0, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$1;->this$0:Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
+    iput-object p1, p0, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$1;->a:Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
 
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
@@ -42,7 +33,7 @@
 
 
 # virtual methods
-.method protected initialValue()Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
+.method protected a()Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
     .locals 2
 
     .prologue
@@ -56,12 +47,12 @@
     return-object v0
 .end method
 
-.method protected bridge synthetic initialValue()Ljava/lang/Object;
+.method protected synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
     .prologue
     .line 45
-    invoke-virtual {p0}, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$1;->initialValue()Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
+    invoke-virtual {p0}, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$1;->a()Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
 
     move-result-object v0
 

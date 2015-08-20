@@ -4,9 +4,7 @@
 
 
 # static fields
-.field public static final TAG:Ljava/lang/String; = "ViewCompat"
-
-.field private static sChildrenDrawingOrderMethod:Ljava/lang/reflect/Method;
+.field private static a:Ljava/lang/reflect/Method;
 
 
 # direct methods
@@ -20,80 +18,65 @@
     return-void
 .end method
 
-.method public static isOpaque(Landroid/view/View;)Z
-    .locals 1
-    .param p0, "view"    # Landroid/view/View;
+.method public static a(Landroid/view/ViewGroup;Z)V
+    .locals 6
 
     .prologue
-    .line 33
-    invoke-virtual {p0}, Landroid/view/View;->isOpaque()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static setChildrenDrawingOrderEnabled(Landroid/view/ViewGroup;Z)V
-    .locals 7
-    .param p0, "viewGroup"    # Landroid/view/ViewGroup;
-    .param p1, "enabled"    # Z
-
-    .prologue
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
     .line 37
-    sget-object v1, Landroid/support/v4/view/ViewCompatEclairMr1;->sChildrenDrawingOrderMethod:Ljava/lang/reflect/Method;
+    sget-object v0, Landroid/support/v4/view/ViewCompatEclairMr1;->a:Ljava/lang/reflect/Method;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 39
     :try_start_0
-    const-class v1, Landroid/view/ViewGroup;
+    const-class v0, Landroid/view/ViewGroup;
 
-    const-string v2, "setChildrenDrawingOrderEnabled"
+    const-string v1, "setChildrenDrawingOrderEnabled"
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    new-array v3, v3, [Ljava/lang/Class;
+    new-array v2, v2, [Ljava/lang/Class;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    sget-object v5, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    aput-object v5, v3, v4
+    aput-object v4, v2, v3
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Landroid/support/v4/view/ViewCompatEclairMr1;->sChildrenDrawingOrderMethod:Ljava/lang/reflect/Method;
+    sput-object v0, Landroid/support/v4/view/ViewCompatEclairMr1;->a:Ljava/lang/reflect/Method;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 44
     :goto_0
-    sget-object v1, Landroid/support/v4/view/ViewCompatEclairMr1;->sChildrenDrawingOrderMethod:Ljava/lang/reflect/Method;
+    sget-object v0, Landroid/support/v4/view/ViewCompatEclairMr1;->a:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v1, v6}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v0, v5}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 47
     :cond_0
     :try_start_1
-    sget-object v1, Landroid/support/v4/view/ViewCompatEclairMr1;->sChildrenDrawingOrderMethod:Ljava/lang/reflect/Method;
+    sget-object v0, Landroid/support/v4/view/ViewCompatEclairMr1;->a:Ljava/lang/reflect/Method;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v2, v3
+    aput-object v3, v1, v2
 
-    invoke-virtual {v1, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_2
@@ -108,7 +91,6 @@
     move-exception v0
 
     .line 42
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
     const-string v1, "ViewCompat"
 
     const-string v2, "Unable to find childrenDrawingOrderEnabled"
@@ -118,12 +100,10 @@
     goto :goto_0
 
     .line 48
-    .end local v0    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v0
 
     .line 49
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     const-string v1, "ViewCompat"
 
     const-string v2, "Unable to invoke childrenDrawingOrderEnabled"
@@ -133,12 +113,10 @@
     goto :goto_1
 
     .line 50
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v0
 
     .line 51
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
     const-string v1, "ViewCompat"
 
     const-string v2, "Unable to invoke childrenDrawingOrderEnabled"
@@ -148,12 +126,10 @@
     goto :goto_1
 
     .line 52
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :catch_3
     move-exception v0
 
     .line 53
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     const-string v1, "ViewCompat"
 
     const-string v2, "Unable to invoke childrenDrawingOrderEnabled"
@@ -161,4 +137,16 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
+.end method
+
+.method public static a(Landroid/view/View;)Z
+    .locals 1
+
+    .prologue
+    .line 33
+    invoke-virtual {p0}, Landroid/view/View;->isOpaque()Z
+
+    move-result v0
+
+    return v0
 .end method

@@ -6,243 +6,201 @@
 .implements Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "MyVpaListener"
-.end annotation
-
-
 # instance fields
-.field mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-
-# direct methods
-.method constructor <init>(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)V
-    .locals 0
-    .param p1, "vpa"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    .prologue
-    .line 528
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 529
-    iput-object p1, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    .line 530
-    return-void
-.end method
+.field a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/view/View;)V
+.method public a(Landroid/view/View;)V
     .locals 3
-    .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 571
-    const/high16 v2, 0x7e000000
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    .line 507
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
-    move-result-object v1
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->c(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)I
 
-    .line 572
-    .local v1, "listenerTag":Ljava/lang/Object;
-    const/4 v0, 0x0
+    move-result v0
 
-    .line 573
-    .local v0, "listener":Landroid/support/v4/view/ViewPropertyAnimatorListener;
-    instance-of v2, v1, Landroid/support/v4/view/ViewPropertyAnimatorListener;
+    if-ltz v0, :cond_0
 
-    if-eqz v2, :cond_0
+    .line 508
+    const/4 v0, 0x2
 
-    move-object v0, v1
+    invoke-static {p1, v0, v1}, Landroid/support/v4/view/ViewCompat;->a(Landroid/view/View;ILandroid/graphics/Paint;)V
 
-    .line 574
-    check-cast v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
-
-    .line 576
+    .line 510
     :cond_0
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->a(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
     if-eqz v0, :cond_1
 
-    .line 577
-    invoke-interface {v0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->onAnimationCancel(Landroid/view/View;)V
+    .line 511
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
-    .line 579
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->a(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    .line 513
     :cond_1
-    return-void
-.end method
+    const/high16 v0, 0x7e000000
 
-.method public onAnimationEnd(Landroid/view/View;)V
-    .locals 4
-    .param p1, "view"    # Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    .prologue
-    .line 552
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    move-result-object v0
 
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mOldLayerType:I
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$400(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)I
+    .line 515
+    instance-of v2, v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
-    move-result v2
+    if-eqz v2, :cond_3
 
-    if-ltz v2, :cond_0
-
-    .line 553
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mOldLayerType:I
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$400(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    invoke-static {p1, v2, v3}, Landroid/support/v4/view/ViewCompat;->setLayerType(Landroid/view/View;ILandroid/graphics/Paint;)V
-
-    .line 554
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    const/4 v3, -0x1
-
-    # setter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mOldLayerType:I
-    invoke-static {v2, v3}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$402(Landroid/support/v4/view/ViewPropertyAnimatorCompat;I)I
-
-    .line 556
-    :cond_0
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mEndAction:Ljava/lang/Runnable;
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$000(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    .line 557
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mEndAction:Ljava/lang/Runnable;
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$000(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
-
-    .line 559
-    :cond_1
-    const/high16 v2, 0x7e000000
-
-    invoke-virtual {p1, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 560
-    .local v1, "listenerTag":Ljava/lang/Object;
-    const/4 v0, 0x0
-
-    .line 561
-    .local v0, "listener":Landroid/support/v4/view/ViewPropertyAnimatorListener;
-    instance-of v2, v1, Landroid/support/v4/view/ViewPropertyAnimatorListener;
-
-    if-eqz v2, :cond_2
-
-    move-object v0, v1
-
-    .line 562
+    .line 516
     check-cast v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
-    .line 564
+    .line 518
+    :goto_0
+    if-eqz v0, :cond_2
+
+    .line 519
+    invoke-interface {v0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->a(Landroid/view/View;)V
+
+    .line 521
     :cond_2
-    if-eqz v0, :cond_3
-
-    .line 565
-    invoke-interface {v0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->onAnimationEnd(Landroid/view/View;)V
-
-    .line 567
-    :cond_3
     return-void
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
-.method public onAnimationStart(Landroid/view/View;)V
-    .locals 4
-    .param p1, "view"    # Landroid/view/View;
+.method public b(Landroid/view/View;)V
+    .locals 3
 
     .prologue
+    const/4 v1, 0x0
+
+    .line 525
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->c(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)I
+
+    move-result v0
+
+    if-ltz v0, :cond_0
+
+    .line 526
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->c(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)I
+
+    move-result v0
+
+    invoke-static {p1, v0, v1}, Landroid/support/v4/view/ViewCompat;->a(Landroid/view/View;ILandroid/graphics/Paint;)V
+
+    .line 527
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    const/4 v2, -0x1
+
+    invoke-static {v0, v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->a(Landroid/support/v4/view/ViewPropertyAnimatorCompat;I)I
+
+    .line 529
+    :cond_0
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->b(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    .line 530
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->a:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    invoke-static {v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->b(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    .line 532
+    :cond_1
+    const/high16 v0, 0x7e000000
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v0
+
     .line 534
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    instance-of v2, v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mOldLayerType:I
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$400(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)I
-
-    move-result v2
-
-    if-ltz v2, :cond_0
+    if-eqz v2, :cond_3
 
     .line 535
-    const/4 v2, 0x2
-
-    const/4 v3, 0x0
-
-    invoke-static {p1, v2, v3}, Landroid/support/v4/view/ViewCompat;->setLayerType(Landroid/view/View;ILandroid/graphics/Paint;)V
+    check-cast v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
     .line 537
-    :cond_0
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    :goto_0
+    if-eqz v0, :cond_2
 
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mStartAction:Ljava/lang/Runnable;
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$100(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
+    .line 538
+    invoke-interface {v0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->b(Landroid/view/View;)V
 
-    move-result-object v2
+    .line 540
+    :cond_2
+    return-void
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_0
+.end method
+
+.method public c(Landroid/view/View;)V
+    .locals 3
+
+    .prologue
+    .line 544
+    const/high16 v0, 0x7e000000
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 545
+    const/4 v1, 0x0
+
+    .line 546
+    instance-of v2, v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
     if-eqz v2, :cond_1
 
-    .line 538
-    iget-object v2, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$ICSViewPropertyAnimatorCompatImpl$MyVpaListener;->mVpa:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-
-    # getter for: Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mStartAction:Ljava/lang/Runnable;
-    invoke-static {v2}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->access$100(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Ljava/lang/Runnable;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
-
-    .line 540
-    :cond_1
-    const/high16 v2, 0x7e000000
-
-    invoke-virtual {p1, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 541
-    .local v1, "listenerTag":Ljava/lang/Object;
-    const/4 v0, 0x0
-
-    .line 542
-    .local v0, "listener":Landroid/support/v4/view/ViewPropertyAnimatorListener;
-    instance-of v2, v1, Landroid/support/v4/view/ViewPropertyAnimatorListener;
-
-    if-eqz v2, :cond_2
-
-    move-object v0, v1
-
-    .line 543
+    .line 547
     check-cast v0, Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
-    .line 545
-    :cond_2
-    if-eqz v0, :cond_3
+    .line 549
+    :goto_0
+    if-eqz v0, :cond_0
 
-    .line 546
-    invoke-interface {v0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->onAnimationStart(Landroid/view/View;)V
+    .line 550
+    invoke-interface {v0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->c(Landroid/view/View;)V
 
-    .line 548
-    :cond_3
+    .line 552
+    :cond_0
     return-void
+
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_0
 .end method

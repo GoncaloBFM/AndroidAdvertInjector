@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="abc_action_bar_home_description">נווט לדף הבית</string>
-    <string name="abc_action_bar_up_description">נווט למעלה</string>
-    <string name="abc_action_menu_overflow_description">עוד אפשרויות</string>
-    <string name="abc_action_mode_done">בוצע</string>
-    <string name="abc_activity_chooser_view_see_all">ראה הכול</string>
-    <string name="abc_activitychooserview_choose_application">בחר אפליקציה</string>
-    <string name="abc_searchview_description_clear">מחק שאילתה</string>
-    <string name="abc_searchview_description_query">שאילתת חיפוש</string>
-    <string name="abc_searchview_description_search">חפש</string>
-    <string name="abc_searchview_description_submit">שלח שאילתה</string>
-    <string name="abc_searchview_description_voice">חיפוש קולי</string>
-    <string name="abc_shareactionprovider_share_with">שתף עם</string>
-    <string name="abc_shareactionprovider_share_with_application">‏שתף עם %s</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="app_name">FloatISwipe</string>
+    <string name="fl_tag_applications">מועדפים</string>
+    <string name="fl_tag_recently">אחרון</string>
+    <string name="fl_tag_switchers">Toolbox</string>
+    <string name="float_controller_volumeController_ring">Vibration mode</string>
+    <string name="float_controller_volumeController_silent">Silent mode</string>
+    <string name="float_controller_volumeController_vibration_ring">Ring and vibration mode</string>
+    <string name="float_toast_template_auto_screenout_1_min">Sleep after &lt;font color=#00914c >%1$s min&lt;/font> of inactivity</string>
+    <string name="float_toast_template_auto_screenout_min">Sleep after &lt;font color=#00914c >%1$s min&lt;/font> of inactivity</string>
+    <string name="float_toast_template_auto_screenout_sec">Sleep after &lt;font color=#00914c >%1$s s&lt;/font> of inactivity</string>
+    <string name="float_toast_template_brightness_auto">אוטומטי</string>
+    <string name="float_toast_template_brightness_r2">Brightness: &lt;font color=#00914c >%1$s&lt;/font></string>
+    <string name="float_toast_template_off">%1$s: &lt;font color=#dc463a >OFF&lt;/font></string>
+    <string name="float_toast_template_on">%1$s: &lt;font color=#00914c >ON&lt;/font></string>
+    <string name="float_type_airplane">מטוס</string>
+    <string name="float_type_auto_screenoff">שינה</string>
+    <string name="float_type_bright">בהירות</string>
+    <string name="float_type_calc">מחשבון</string>
+    <string name="float_type_camera">מצלמה</string>
+    <string name="float_type_data">נתונים</string>
+    <string name="float_type_feedback_vibrate">Haptics</string>
+    <string name="float_type_gps">GPS</string>
+    <string name="float_type_light">פנס</string>
+    <string name="float_type_ring">רינגטון</string>
+    <string name="float_type_rotation">סיבוב אוטומטי</string>
+    <string name="float_type_silent">Silent</string>
+    <string name="float_type_swipesetting">setting</string>
+    <string name="float_type_vibration">רטט</string>
+    <string name="float_type_wifi">Wi-Fi</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="notif_memory_txt">האץ</string>
+    <string name="notif_settings_txt">הגדרות</string>
+    <string name="swipe_abuse_tip_cancel">לא</string>
+    <string name="swipe_abuse_tip_msg">Do Not Disturb: Do you want to disable iSwipe in %1$s?</string>
+    <string name="swipe_abuse_tip_toast">You can cancel this block in settings.</string>
+    <string name="swipe_abuse_tip_yes">כן</string>
+    <string name="swipe_access_service_desc">This service is only used to receive information from third-parties. It will not collect any data.</string>
+    <string name="swipe_guide_btn_enable">אפשר</string>
+    <string name="swipe_guide_btn_start">Skip</string>
+    <string name="swipe_guide_float_tip_alter_window">Press \"Display pop-up window\"</string>
+    <string name="swipe_guide_float_tip_enable">Please find Clean Master and enable the service</string>
+    <string name="swipe_guide_float_tip_usage_stat">Please find Clean Master and check it</string>
+    <string name="swipe_guide_mask_cancle">ביטול</string>
+    <string name="swipe_guide_mask_enable">Enable</string>
+    <string name="swipe_guide_mask_tips">Enable notifications and never miss messages from friends again!</string>
+    <string name="swipe_logo_desc">Everything within reach</string>
+    <string name="swipe_logo_txt">iSwipe</string>
+    <string name="swipe_open_message_tips">Enable Notifications</string>
+    <string name="swipe_with_finger">Swipe with one finger</string>
 </resources>

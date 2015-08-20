@@ -3,17 +3,6 @@
 .source "SlidingPaneLayout.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/widget/SlidingPaneLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "SlidingPanelLayoutImplJBMR1"
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -27,10 +16,8 @@
 
 
 # virtual methods
-.method public invalidateChildRegion(Landroid/support/v4/widget/SlidingPaneLayout;Landroid/view/View;)V
+.method public a(Landroid/support/v4/widget/SlidingPaneLayout;Landroid/view/View;)V
     .locals 1
-    .param p1, "parent"    # Landroid/support/v4/widget/SlidingPaneLayout;
-    .param p2, "child"    # Landroid/view/View;
 
     .prologue
     .line 1534
@@ -40,9 +27,9 @@
 
     check-cast v0, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;
 
-    iget-object v0, v0, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->dimPaint:Landroid/graphics/Paint;
+    iget-object v0, v0, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->d:Landroid/graphics/Paint;
 
-    invoke-static {p2, v0}, Landroid/support/v4/view/ViewCompat;->setLayerPaint(Landroid/view/View;Landroid/graphics/Paint;)V
+    invoke-static {p2, v0}, Landroid/support/v4/view/ViewCompat;->a(Landroid/view/View;Landroid/graphics/Paint;)V
 
     .line 1535
     return-void

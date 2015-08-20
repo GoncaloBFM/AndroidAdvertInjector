@@ -14,7 +14,7 @@
     return-void
 .end method
 
-.method static instantiate(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
+.method static a(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,7 +30,6 @@
 
     .prologue
     .line 24
-    .local p0, "callbacks":Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;, "Landroid/support/v4/os/ParcelableCompatCreatorCallbacks<TT;>;"
     new-instance v0, Landroid/support/v4/os/ParcelableCompatCreatorHoneycombMR2;
 
     invoke-direct {v0, p0}, Landroid/support/v4/os/ParcelableCompatCreatorHoneycombMR2;-><init>(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)V
