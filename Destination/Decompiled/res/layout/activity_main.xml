@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.cleanmaster.base.widget.TouchListenRelativeLayout android:id="@id/root_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.keniu.security.newmain.MainTabView android:id="@id/tab" android:background="#fff8fafc" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentBottom="true" />
-    <com.keniu.security.newmain.CustomViewPager android:id="@id/vp" android:background="@android:color/transparent" android:persistentDrawingCache="animation" android:layout_width="fill_parent" android:layout_height="fill_parent" android:flipInterval="30" android:layout_above="@id/tab" />
-    <View android:background="#80aab4be" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_above="@id/tab" />
-</com.cleanmaster.base.widget.TouchListenRelativeLayout>

@@ -39,7 +39,7 @@ public class Injector {
 		File originalDecompile = new File(DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH);
 		try {
 			FileManager.purgeDirectory(originalDecompile);
-			FileManager.mergeCopyDirectory(new File(DECOMPILER_TARGET_FULL_DIRECTORY_PATH), originalDecompile);
+			FileManager.mergeCopyDirectory(new File(DECOMPILER_TARGET_FULL_DIRECTORY_PATH), originalDecompile, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

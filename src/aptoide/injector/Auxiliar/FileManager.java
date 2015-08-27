@@ -10,35 +10,75 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
- * Created by gbfm on 8/6/15.
+ * Auxiliary file manager implement using both the java.io standard
+ * and the apache commons io (https://commons.apache.org/proper/commons-io/)
+ * libraries for better performance
+ *
+ * @author      Gonçalo M.
  */
 public class FileManager {
 
+	/**
+	 * Returns the extension of a file
+	 * @param file File to get the extension from
+	 * @return The extension of the file
+	 */
 	public static String getFileExtension(File file) {
 		return FilenameUtils.getExtension(file.getAbsolutePath());
 	}
 
+	/**
+	 * Returns the extension of a file
+	 * @param filePath File to get the extension from
+	 * @return The extension of the file
+	 */
 	public static String getFileExtension(String filePath) {
 		return FilenameUtils.getExtension(filePath);
 	}
 
+	/**
+	 * Returns True if a file exists, False if not
+	 * @param file File to check
+	 * @return True if the file exists, False if not
+	 */
 	public static boolean fileExists(File file) {
 		return file.isFile();
 	}
 
+	/**
+	 * Returns True if a file exists, False if not
+	 * @param filePath File path of the file to check
+	 * @return True if the file exists, False if not
+	 */
 	public static boolean fileExists(String filePath) {
 		return fileExists(new File(filePath));
 	}
 
+	/**
+	 * Removes recursively every file and directory from a directory
+	 * @param folderPath Path to the directory to be purged
+	 * @throws IOException Could not load directory to purge or delete its contents
+	 */
 	public static void purgeDirectory(String folderPath) throws IOException {
 		purgeDirectory(new File(folderPath));
 
 	}
 
-	public static void purgeDirectory(File folder) throws IOException {
-		FileUtils.cleanDirectory(folder);
+	/**
+	 * Removes recursively every file and directory from a directory
+	 * @param directory Directory to be purged
+	 * @throws IOException Could not load directory to purge or delete its contents
+	 */
+	public static void purgeDirectory(File directory) throws IOException {
+		FileUtils.cleanDirectory(directory);
 	}
 
+	/**
+	 * Recursively copies a directory to another directory
+	 * @param source Directory to copy
+	 * @param destination Directory to copy source to
+	 * @throws IOException Source or destination is not a directory or the copy itself failed
+	 */
 	public static void copyDirectory(File source, File destination) throws IOException {
 		if (!source.isDirectory()) {
 			throw new IOException("Source is not a directory");
@@ -48,7 +88,15 @@ public class FileManager {
 		FileUtils.copyDirectory(source, destination);
 	}
 
-	public static LinkedList<File> mergeCopyDirectory(File source, File destination) throws IOException {
+	/**
+	 * Recursively merges two directories
+	 * @param source Original directory
+	 * @param destination Directory to merge
+	 * @param skipOverFilesWithSameName True if you want to skip files with the same name False if you want to throw an IOException
+	 * @return LinkedList of Files Added
+	 * @throws IOException Source or destination is not a directory or the copy itself failed
+	 */
+	public static LinkedList<File> mergeCopyDirectory(File source, File destination, boolean skipOverFilesWithSameName) throws IOException {
 
 		if (!source.isDirectory()) {
 			throw new IOException("Source is not a directory");
@@ -66,28 +114,41 @@ public class FileManager {
 			addedFiles.add(fileDestination);
 			try {
 				Files.copy(fileToCopy.toPath(), fileDestination.toPath());
-				//System.out.println("SUCC  " + fileToCopy.getAbsolutePath() + "    --->   " + fileDestination);
 			} catch (IOException e) {
-				System.out.println("FAIL  " + fileToCopy.getAbsolutePath() + "    --->   " + fileDestination);
-				//if (!(fileDestination.isDirectory() && fileToCopy.isDirectory())) throw e;
+				if (!skipOverFilesWithSameName || !(fileDestination.isDirectory() && fileToCopy.isDirectory()))  {
+					throw e;
+				}
 			}
 		}
 		return addedFiles;
 	}
 
+	/**
+	 * Replaces part of a file path
+	 * @param path Original path
+	 * @param pathToCut Part of the path to cut
+	 * @param pathToAdd Path to add
+	 * @return Updated file path
+	 */
 	private static String replacePaths(String path, String pathToCut, String pathToAdd) {
 		int sourcePathSize = pathToCut.length();
 		return pathToAdd + path.substring(sourcePathSize);
 	}
 
-	//TODO: optimize (addAll implementation is slow)
-	public static LinkedList<File> getAllElements(File source){
+	/**
+	 * Recursively returns all elements (files and directories) that are inside the root element
+	 * (if the root element is a File the resulting list will only contain that file)
+ 	 * @param root Root element
+	 * @return All elements (files and directories) that are inside the root elemen
+	 */
+	public static LinkedList<File> getAllElements(File root){
 		LinkedList<File> list = new LinkedList<File>();
 
-		list.addLast(source);
-		File[] files = source.listFiles();
+		list.addLast(root);
+		File[] files = root.listFiles();
 		if (files != null) {
 			for (File file : files) {
+				//TODO: optimize (LinkedList.addAll implementation is slow)
 				list.addAll(getAllElements(file));
 			}
 		}
@@ -95,14 +156,28 @@ public class FileManager {
 	}
 
 
+	/**
+	 * Copies an array of elements (files or directories) to a directory
+	 * (Calls copyElement for each of the elements being copied)
+	 * @param elements Elements to copy
+	 * @param destination Target directory
+	 * @throws IOException Could not copy the files successfully
+	 */
 	public static void copyElements(File[] elements, File destination) throws IOException {
 		for (File element : elements) {
 			copyElement(element, destination);
 		}
 	}
 
+	/**
+	 * Copies an elements (file or directory) to a directory
+	 * (Calls copyDirectory if the element is a directory and
+	 * copyFile if the element is a file)
+	 * @param element Element to copy
+	 * @param destination Target directory
+	 * @throws IOException Could not copy the file successfully
+	 */
 	public static void copyElement(File element, File destination) throws IOException {
-		System.out.println(element.getName() + "  ->  " + destination.getName());
 		if (element.isDirectory()) {
 			copyDirectory(element, destination);
 		} else {
@@ -110,6 +185,13 @@ public class FileManager {
 		}
 	}
 
+	/**
+	 * Recursively searches for a file or directory with a specified
+	 * name and returns the  corresponding File object
+	 * @param root Root element for the start of the search
+	 * @param name Name of the file or directory to search
+	 * @return File object if the file is found, null otherwise
+	 */
 	public static File findFile(File root, String name) {
 		if (root.getName().equals(name)){
 			return root;
@@ -126,6 +208,12 @@ public class FileManager {
 		return null;
 	}
 
+	/**
+	 * Recursively copies a directory to another directory
+	 * @param source Directory to copy
+	 * @param destination Directory to copy source to
+	 * @throws IOException Source or destination is not a directory or the copy itself failed
+	 */
 	public static void copyFile(File source, File destination) throws IOException {
 		if (source.isDirectory()) {
 			throw new IOException("Source is not a file");

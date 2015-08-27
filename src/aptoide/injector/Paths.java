@@ -24,12 +24,13 @@ public class Paths {
 	public static final String RESOURCES_DIRECTORY = "ResourceFiles";
 	public static final String FILES_TO_ADD_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "FilesToAdd";
 	public static final String ADDENDUM_FILES_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "AddendumFiles";
-	public static final String MANIFEST_ADDENDUM_FULL_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "manifest.xml";
-	public static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "public_ids_to_add.xml";
-
-	//Files
-	public static final String SMALI_DIRECTORY = "smali";
-	public static final String LINKER_ACTIVITY_FULL_PATH = SMALI_DIRECTORY + File.separator + "aptoide" + File.separator + "cm" + File.separator + "adcolonydecompile" + File.separator + "ExtraActivity.smali";
+	public static final String LOADER_FILES_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "LoaderFiles";
+	public static final String CONFIGURATION_FILE_FULL_PATH = LOADER_FILES_FULL_DIRECTORY_PATH + File.separator + "config.xml";
+	public static final String XML_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "XML";
+	public static final String CODE_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "Code";
+	public static final String PUBLIC_IDS_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "PublicIds";
+	public static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = PUBLIC_IDS_ADDENDUM_FULL_DIRECTORY_PATH + File.separator + "public_ids_to_add.xml";
+	public static final String AUXILIAR_CONTENT_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "Content";
 
 	//Target Directories
 	public static final String ROOT_TARGET_DIRECTORY = "Destination";

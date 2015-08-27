@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="check_language_en">true</bool>
-    <bool name="resetSplashTextType">false</bool>
-    <bool name="is_tablet">false</bool>
-</resources>

@@ -1,10 +1,16 @@
 package aptoide.injector.Modifier;
 
 import aptoide.injector.Auxiliar.FileManager;
+import aptoide.injector.Modifier.Addendums.*;
+import aptoide.injector.Modifier.Auxiliar.AndroidManifestParser;
+import aptoide.injector.Modifier.Auxiliar.IAndroidManifestParser;
+import aptoide.injector.Modifier.Loaders.ConfigurationsLoader;
+import aptoide.injector.Modifier.Loaders.ILoader;
+import aptoide.injector.Modifier.Loaders.LoaderException;
+import aptoide.injector.Modifier.TextRW.ITextRW;
+import aptoide.injector.Modifier.TextRW.TextRW;
 import aptoide.injector.Paths;
 
-import javax.xml.transform.TransformerException;
-import javax.xml.xpath.XPathExpressionException;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,27 +22,26 @@ import java.util.LinkedList;
 public class Modifier implements IModifier {
 
 	private static final String FILES_TO_ADD_FULL_DIRECTORY_PATH = Paths.FILES_TO_ADD_FULL_DIRECTORY_PATH;
-	private static final String MANIFEST_ADDENDUM_FULL_PATH = Paths.MANIFEST_ADDENDUM_FULL_PATH;
+	private static final String XML_ADDENDUM_FULL_DIRECTORY_PATH = Paths.XML_ADDENDUM_FULL_DIRECTORY_PATH;
 	private static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = Paths.FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH;
 
-	private static final String ANDROID_MANIFEST_FILE = "AndroidManifest.xml";
 	private static final String ANDROID_PUBLIC_IDS_FILE = "res" + File.separator + "values" + File.separator + "public.xml";
 
-	private static final String LINKER_ACTIVITY_FULL_PATH = Paths.LINKER_ACTIVITY_FULL_PATH;
-	private static final String LINKER_ACTIVITY_OLD_LINK = "aptoide/cm/adcolonydecompile/LinkActivity";
+	private static final String CONFIGURATION_FILE_FULL_PATH = Paths.CONFIGURATION_FILE_FULL_PATH;
 
 	private static final String SMALI_EXTENSION = "smali";
-
-	IAndroidManifestRW androidManifestRW;
-	IAndroidPublicIdsRW androidPublicIdsRW;
-	String mainActivityName;
+	private static final String LINKER_ACTIVITY_STARTER_CONFIG_NAME = "linker_activity_starter";
+	private static final String LINKER_ACTIVITY_NAME_CONFIG_NAME = "linker_activity_name";
 
 	@Override
 	public void modifyCode(String decompiledDirectory) throws ModifierException {
+		HashMap<String, String> configurations;
+		String launchActivity = this.getCurrentLaunchActivityName(decompiledDirectory);
+		configurations = this.loadConfigurationValues(CONFIGURATION_FILE_FULL_PATH);
 		LinkedList<File> filesAdded = this.addFiles(decompiledDirectory);
-		this.modifyManifest(decompiledDirectory);
+		this.modifyLinkerActivity(decompiledDirectory, configurations.get(LINKER_ACTIVITY_STARTER_CONFIG_NAME), launchActivity, configurations.get(LINKER_ACTIVITY_NAME_CONFIG_NAME));
+		this.modifyXML(decompiledDirectory);
 		LinkedList<Resource> newResources = this.modifyPublicIds(decompiledDirectory);
-		this.modifyLinkerActivity(decompiledDirectory);
 		this.replaceResources(filesAdded, newResources);
 	}
 
@@ -50,7 +55,7 @@ public class Modifier implements IModifier {
 					throw new ModifierException("Could not change old resource id to the new one in one of the new files", e);
 				}
 				for (Resource resource : resourcesAdded) {
-					file.replaceFileContent(resource.getOldId(), resource.getId());
+					file.replaceFileContent(resource.getOldId(), resource.getId(), false);
 				}
 				try {
 					file.writeFile();
@@ -62,15 +67,46 @@ public class Modifier implements IModifier {
 
 	}
 
-	private void modifyLinkerActivity(String decompiledDirectory) throws ModifierException {
-		ITextRW linkerFile;
+	private String getCurrentLaunchActivityName(String  decompiledDirectory) throws ModifierException {
+		IAndroidManifestParser androidManifestParser;
 		try {
-			linkerFile = new TextRW(decompiledDirectory + File.separator + LINKER_ACTIVITY_FULL_PATH);
+			androidManifestParser = new AndroidManifestParser(decompiledDirectory + File.separator + MANIFEST_FULL_PATH);
+		} catch (Exception e) {
+			throw new ModifierException("Could not load manifest", e);
+		}
+		try {
+			return androidManifestParser.getLaunchActivityName().replace(".", "/");
+		} catch (Exception e) {
+			throw new ModifierException("Could not read manifest", e);
+		}
+	}
+
+	private HashMap<String, String> loadConfigurationValues(String configurationFilePath) throws ModifierException {
+		ILoader configurationLoader;
+
+		try {
+			configurationLoader = new ConfigurationsLoader(configurationFilePath);
+		} catch (Exception e) {
+			throw new ModifierException("Could not load configuration file", e);
+		}
+
+		try {
+			return  configurationLoader.loadValues();
+		} catch (LoaderException e) {
+			throw new ModifierException("Could not read configuration file", e);
+		}
+	}
+
+	private void modifyLinkerActivity(String decompiledDirectory, String pathToLinkerLaucher, String newLaunchActivity, String oldLaunchActivity) throws ModifierException {
+		ITextRW linkerFile;
+
+		try {
+			linkerFile = new TextRW(decompiledDirectory + File.separator + pathToLinkerLaucher);
 		} catch (Exception e) {
 			throw new ModifierException("Could not load linker activity file", e);
 		}
 
-		linkerFile.replaceFileContent(LINKER_ACTIVITY_OLD_LINK, this.mainActivityName);
+		linkerFile.replaceFileContent(oldLaunchActivity, newLaunchActivity, false);
 
 		try {
 			linkerFile.writeFile();
@@ -79,28 +115,25 @@ public class Modifier implements IModifier {
 		}
 	}
 
-
-	private String parseMainActivityName(String mainActivityName) {
-		return mainActivityName.replace(".", "/");
-	}
-
 	private LinkedList<Resource> modifyPublicIds(String decompiledDirectory) throws ModifierException {
+		IAddendum publicIdsAddendum = null;
+
 		LinkedList<Resource> addedResources;
 
 		try {
-			this.androidPublicIdsRW = new AndroidPublicIdsRW(decompiledDirectory + File.separator + ANDROID_PUBLIC_IDS_FILE);
-		} catch (Exception e) {
-			throw new ModifierException("Could not load public ids file", e);
+			publicIdsAddendum = new PublicIdsAddendum(FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH, decompiledDirectory + File.separator + ANDROID_PUBLIC_IDS_FILE);
+		} catch (AddendumException e) {
+			throw new ModifierException("Could not load public ids file or its addendum file", e);
 		}
 
 		try {
-			addedResources = this.androidPublicIdsRW.addResources(FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH);
+			addedResources = publicIdsAddendum.apply();
 		} catch (Exception e) {
-			throw new ModifierException("Could not add public id's", e);
+			throw new ModifierException("Could not add public ids", e);
 		}
 
 		try {
-			this.androidPublicIdsRW.writeChanges();
+			publicIdsAddendum.writeChanges();
 		} catch (Exception e) {
 			throw new ModifierException("Could not write public ids file", e);
 		}
@@ -108,29 +141,33 @@ public class Modifier implements IModifier {
 		return addedResources;
 	}
 
-	private void modifyManifest(String decompiledDirectory) throws ModifierException{
-		try {
-			this.androidManifestRW = new AndroidManifestRW(decompiledDirectory + File.separator + ANDROID_MANIFEST_FILE);
-		} catch (Exception e) {
-			throw new ModifierException("Could not load manifest", e);
+	private void modifyXML(String decompiledDirectory) throws ModifierException {
+
+		File[] xmlAddendumFiles = new File(XML_ADDENDUM_FULL_DIRECTORY_PATH).listFiles();
+		if (xmlAddendumFiles == null) {
+			return;
 		}
 
-		try {
-			this.mainActivityName = this.parseMainActivityName(this.androidManifestRW.getMainActivityName());
-		} catch (Exception e) {
-			throw new ModifierException("Could not load get main activity name", e);
-		}
+		for (File xmlAddendumFile : xmlAddendumFiles) {
+			IAddendum addendum = null;
+			try {
+				addendum = new XMLAddendum(xmlAddendumFile.getAbsolutePath(), decompiledDirectory);
+			} catch (Exception e) {
+				throw new ModifierException("Could not load " + xmlAddendumFile.getAbsolutePath() + " addendum file", e);
+			}
 
-		try {
-			this.androidManifestRW.parseManifestAddendum(MANIFEST_ADDENDUM_FULL_PATH);
-		} catch (Exception e) {
-			throw new ModifierException("Could not change manifest according to the addendum", e);
-		}
+			try {
+				addendum.apply();
+			} catch (Exception e) {
+				throw new ModifierException("Could not change file according to " + addendum.getAddendumFile(), e);
+			}
 
-		try {
-			this.androidManifestRW.writeChanges();
-		} catch (Exception e) {
-			throw new ModifierException("Could not write manifest main activity", e);
+			try {
+				addendum.writeChanges();
+			} catch (Exception e) {
+				throw new ModifierException("Could not write file after applying" +  addendum.getAddendumFile(), e);
+			}
+
 		}
 	}
 
@@ -139,7 +176,7 @@ public class Modifier implements IModifier {
 		File injectDirectory = new File(FILES_TO_ADD_FULL_DIRECTORY_PATH);
 		LinkedList<File> filesAdded;
 		try {
-			filesAdded = FileManager.mergeCopyDirectory(injectDirectory, decompileDirectory);
+			filesAdded = FileManager.mergeCopyDirectory(injectDirectory, decompileDirectory, true);
 		} catch (IOException e) {
 			throw new ModifierException("Could not add files", e);
 		}

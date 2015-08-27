@@ -1,53 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="action_settings">הגדרות</string>
-    <string name="app_name">FloatISwipe</string>
-    <string name="fl_tag_applications">מועדפים</string>
-    <string name="fl_tag_recently">אחרון</string>
-    <string name="fl_tag_switchers">Toolbox</string>
-    <string name="float_controller_volumeController_ring">Vibration mode</string>
-    <string name="float_controller_volumeController_silent">Silent mode</string>
-    <string name="float_controller_volumeController_vibration_ring">Ring and vibration mode</string>
-    <string name="float_toast_template_auto_screenout_1_min">Sleep after &lt;font color=#00914c >%1$s min&lt;/font> of inactivity</string>
-    <string name="float_toast_template_auto_screenout_min">Sleep after &lt;font color=#00914c >%1$s min&lt;/font> of inactivity</string>
-    <string name="float_toast_template_auto_screenout_sec">Sleep after &lt;font color=#00914c >%1$s s&lt;/font> of inactivity</string>
-    <string name="float_toast_template_brightness_auto">אוטומטי</string>
-    <string name="float_toast_template_brightness_r2">Brightness: &lt;font color=#00914c >%1$s&lt;/font></string>
-    <string name="float_toast_template_off">%1$s: &lt;font color=#dc463a >OFF&lt;/font></string>
-    <string name="float_toast_template_on">%1$s: &lt;font color=#00914c >ON&lt;/font></string>
-    <string name="float_type_airplane">מטוס</string>
-    <string name="float_type_auto_screenoff">שינה</string>
-    <string name="float_type_bright">בהירות</string>
-    <string name="float_type_calc">מחשבון</string>
-    <string name="float_type_camera">מצלמה</string>
-    <string name="float_type_data">נתונים</string>
-    <string name="float_type_feedback_vibrate">Haptics</string>
-    <string name="float_type_gps">GPS</string>
-    <string name="float_type_light">פנס</string>
-    <string name="float_type_ring">רינגטון</string>
-    <string name="float_type_rotation">סיבוב אוטומטי</string>
-    <string name="float_type_silent">Silent</string>
-    <string name="float_type_swipesetting">setting</string>
-    <string name="float_type_vibration">רטט</string>
-    <string name="float_type_wifi">Wi-Fi</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="notif_memory_txt">האץ</string>
-    <string name="notif_settings_txt">הגדרות</string>
-    <string name="swipe_abuse_tip_cancel">לא</string>
-    <string name="swipe_abuse_tip_msg">Do Not Disturb: Do you want to disable iSwipe in %1$s?</string>
-    <string name="swipe_abuse_tip_toast">You can cancel this block in settings.</string>
-    <string name="swipe_abuse_tip_yes">כן</string>
-    <string name="swipe_access_service_desc">This service is only used to receive information from third-parties. It will not collect any data.</string>
-    <string name="swipe_guide_btn_enable">אפשר</string>
-    <string name="swipe_guide_btn_start">Skip</string>
-    <string name="swipe_guide_float_tip_alter_window">Press \"Display pop-up window\"</string>
-    <string name="swipe_guide_float_tip_enable">Please find Clean Master and enable the service</string>
-    <string name="swipe_guide_float_tip_usage_stat">Please find Clean Master and check it</string>
-    <string name="swipe_guide_mask_cancle">ביטול</string>
-    <string name="swipe_guide_mask_enable">Enable</string>
-    <string name="swipe_guide_mask_tips">Enable notifications and never miss messages from friends again!</string>
-    <string name="swipe_logo_desc">Everything within reach</string>
-    <string name="swipe_logo_txt">iSwipe</string>
-    <string name="swipe_open_message_tips">Enable Notifications</string>
-    <string name="swipe_with_finger">Swipe with one finger</string>
+    <string name="common_google_play_services_install_title">קבל את שירותי Google Play</string>
+    <string name="common_google_play_services_install_text_phone">יישום זה לא יפעל ללא שירותי Google Play, החסרים בטלפון שלך.</string>
+    <string name="common_google_play_services_install_text_tablet">יישום זה לא יפעל ללא שירותי Google Play, החסרים בטאבלט שלך.</string>
+    <string name="common_google_play_services_install_button">קבל את שירותי Google Play</string>
+    <string name="common_google_play_services_enable_title">הפעלת שירותי Google Play</string>
+    <string name="common_google_play_services_enable_text">יישום זה לא יעבוד אם לא תפעיל את שירותי Google Play.</string>
+    <string name="common_google_play_services_enable_button">הפעל את שירותי Google Play</string>
+    <string name="common_google_play_services_update_title">עדכון שירותי Google Play</string>
+    <string name="common_google_play_services_update_text">יישום זה לא יפעל אם לא תעדכן את שירותי Google Play.</string>
+    <string name="common_google_play_services_network_error_title">שגיאת רשת.</string>
+    <string name="common_google_play_services_network_error_text">דרוש חיבור נתונים כדי להתחבר לשירותי Google Play.</string>
+    <string name="common_google_play_services_invalid_account_title">חשבון לא חוקי</string>
+    <string name="common_google_play_services_invalid_account_text">החשבון שצוין לא קיים במכשיר זה. בחר חשבון אחר.</string>
+    <string name="common_google_play_services_unknown_issue">בעיה לא ידועה בשירותי Google Play.</string>
+    <string name="common_google_play_services_unsupported_title">שירותי Google Play</string>
+    <string name="common_google_play_services_unsupported_text">שירותי Google Play, שחלק מהיישומים שלך מתבססים עליהם, אינם נתמכים על ידי המכשיר שברשותך. צור קשר עם היצרן לקבלת סיוע.</string>
+    <string name="common_google_play_services_update_button">עדכן</string>
+    <string name="common_signin_button_text">היכנס</string>
+    <string name="common_signin_button_text_long">היכנס באמצעות Google</string>
+    <string name="auth_client_using_bad_version_title">יש אפליקציה שניסתה להשתמש בגרסה שגויה של שירותי Google Play.</string>
+    <string name="auth_client_needs_enabling_title">יש אפליקציה המחייבת הפעלה של שירותי Google Play.</string>
+    <string name="auth_client_needs_installation_title">יש אפליקציה המחייבת התקנה של שירותי Google Play.</string>
+    <string name="auth_client_needs_update_title">יש אפליקציה המחייבת עדכון של שירותי Google Play.</string>
+    <string name="auth_client_play_services_err_notification_msg">שגיאה בשירותי Google Play</string>
+    <string name="auth_client_requested_by_msg">התבקשה על ידי %1$s</string>
 </resources>

@@ -9,7 +9,9 @@ import aptoide.injector.Paths;
 import java.time.chrono.IsoChronology;
 
 /**
- * Created by gbfm on 8/14/15.
+ * Apk signer
+ *
+ * @author      Gonçalo M.
  */
 public class Signer implements ISigner{
 

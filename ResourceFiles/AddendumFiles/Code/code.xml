@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+The file is parsed in order
+Root tag name has no effect but "file" attribute points to target file
+
+To remove:
+<remove type="TYPE OF SEARCH" lookup="FILE WITH CONTENT TO FIND"/>
+
+To add:
+<add where="WHERE TO ADD THE CONTENT" content="FILE WITH CONTENT TO ADD"/>
+
+To replace:
+<replace lookup="FILE WITH CONTENT TO FIND" content="FILE WITH CONTENT TO ADD"/>
+
+
+Available values for "where" attribute:
+bottom -> bottom of file
+top -> top of file
+
+Available values for "type" attribute:
+text -> normal text search
+regx -> search by regular expression
+
+Escape characters:
+"   &quot;
+'   &apos;
+<   &lt;
+>   &gt;
+&   &amp;
+-->
+
+<addendum file="code.xml">
+</addendum>
