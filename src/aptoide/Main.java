@@ -11,7 +11,7 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-		args = new String[]{"TestFiles/flappy_bird.apk", "Final/final.apk"};
+		args = new String[]{"TestFiles/injection.apk", "Final/final.apk"};
 
 		if (args.length != 2) {
 			print("Wrong number of args");
@@ -28,7 +28,7 @@ public class Main {
 
 		if (!FileManager.getFileExtension(originalApk).equals("apk")) {
 			print("Original Apk file is not an Apk");
-			return;
+			return;vs
 		}*/
 
 		Injector injector = new Injector();

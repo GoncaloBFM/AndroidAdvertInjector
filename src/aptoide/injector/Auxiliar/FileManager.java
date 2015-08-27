@@ -115,7 +115,7 @@ public class FileManager {
 			try {
 				Files.copy(fileToCopy.toPath(), fileDestination.toPath());
 			} catch (IOException e) {
-				if (!skipOverFilesWithSameName || !(fileDestination.isDirectory() && fileToCopy.isDirectory()))  {
+				if (!skipOverFilesWithSameName && !(fileDestination.isDirectory() && fileToCopy.isDirectory()))  {
 					throw e;
 				}
 			}

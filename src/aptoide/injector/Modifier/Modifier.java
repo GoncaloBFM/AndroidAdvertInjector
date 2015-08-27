@@ -25,23 +25,23 @@ public class Modifier implements IModifier {
 	private static final String XML_ADDENDUM_FULL_DIRECTORY_PATH = Paths.XML_ADDENDUM_FULL_DIRECTORY_PATH;
 	private static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = Paths.FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH;
 
-	private static final String ANDROID_PUBLIC_IDS_FILE = "res" + File.separator + "values" + File.separator + "public.xml";
-
 	private static final String CONFIGURATION_FILE_FULL_PATH = Paths.CONFIGURATION_FILE_FULL_PATH;
 
 	private static final String SMALI_EXTENSION = "smali";
 	private static final String LINKER_ACTIVITY_STARTER_CONFIG_NAME = "linker_activity_starter";
 	private static final String LINKER_ACTIVITY_NAME_CONFIG_NAME = "linker_activity_name";
+	private static final String MANIFEST_PATH_CONFIG_NAME = "manifest_path";
+	private static final String PUBLIC_IDS_PATH_CONFIG_NAME = "public_ids_path";
 
 	@Override
 	public void modifyCode(String decompiledDirectory) throws ModifierException {
 		HashMap<String, String> configurations;
-		String launchActivity = this.getCurrentLaunchActivityName(decompiledDirectory);
 		configurations = this.loadConfigurationValues(CONFIGURATION_FILE_FULL_PATH);
+		String launchActivity = this.getCurrentLaunchActivityName(decompiledDirectory, configurations.get(MANIFEST_PATH_CONFIG_NAME));
 		LinkedList<File> filesAdded = this.addFiles(decompiledDirectory);
 		this.modifyLinkerActivity(decompiledDirectory, configurations.get(LINKER_ACTIVITY_STARTER_CONFIG_NAME), launchActivity, configurations.get(LINKER_ACTIVITY_NAME_CONFIG_NAME));
 		this.modifyXML(decompiledDirectory);
-		LinkedList<Resource> newResources = this.modifyPublicIds(decompiledDirectory);
+		LinkedList<Resource> newResources = this.modifyPublicIds(decompiledDirectory, configurations.get(PUBLIC_IDS_PATH_CONFIG_NAME));
 		this.replaceResources(filesAdded, newResources);
 	}
 
@@ -67,10 +67,10 @@ public class Modifier implements IModifier {
 
 	}
 
-	private String getCurrentLaunchActivityName(String  decompiledDirectory) throws ModifierException {
+	private String getCurrentLaunchActivityName(String decompiledDirectory, String manifestPath) throws ModifierException {
 		IAndroidManifestParser androidManifestParser;
 		try {
-			androidManifestParser = new AndroidManifestParser(decompiledDirectory + File.separator + MANIFEST_FULL_PATH);
+			androidManifestParser = new AndroidManifestParser(decompiledDirectory + File.separator + manifestPath);
 		} catch (Exception e) {
 			throw new ModifierException("Could not load manifest", e);
 		}
@@ -115,13 +115,13 @@ public class Modifier implements IModifier {
 		}
 	}
 
-	private LinkedList<Resource> modifyPublicIds(String decompiledDirectory) throws ModifierException {
+	private LinkedList<Resource> modifyPublicIds(String decompiledDirectory, String publicIdsFile) throws ModifierException {
 		IAddendum publicIdsAddendum = null;
 
 		LinkedList<Resource> addedResources;
 
 		try {
-			publicIdsAddendum = new PublicIdsAddendum(FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH, decompiledDirectory + File.separator + ANDROID_PUBLIC_IDS_FILE);
+			publicIdsAddendum = new PublicIdsAddendum(FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH, decompiledDirectory + File.separator + publicIdsFile);
 		} catch (AddendumException e) {
 			throw new ModifierException("Could not load public ids file or its addendum file", e);
 		}
