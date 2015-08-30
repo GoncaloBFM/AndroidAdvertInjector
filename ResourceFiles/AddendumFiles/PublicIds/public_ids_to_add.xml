@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <to-add>
-    <public type="layout" name="activity_extra" id="0x7f040019" />
+    <public type="drawable" name="aptoide" id="0x7f02003e" />
+    <public type="layout" name="activity_extra" id="0x7f040018" />
+    <public type="string" name="swift" id="0x7f060015" />
 </to-add>

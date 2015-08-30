@@ -11,7 +11,7 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-		args = new String[]{"TestFiles/injection.apk", "Final/final.apk"};
+		args = new String[]{"TestFiles/adobe_reader_outcolony.apk", "Final/final.apk"};
 
 		if (args.length != 2) {
 			print("Wrong number of args");

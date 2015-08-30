@@ -44,7 +44,7 @@ Escape characters:
     <remove xpath="/manifest/application/activity/intent-filter/category[@name=&quot;android.intent.category.LAUNCHER&quot;]/.."/>
 
     <add xpath="/manifest/application">
-        <activity android:label="@string/app_name" android:name="aptoide.cm.adcolonydecompile.ExtraActivity">
+        <activity android:label="@string/app_name" android:name="aptoide.injection.ExtraActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

@@ -1,4 +1,4 @@
-.class Laptoide/cm/adcolonydecompile/ExtraActivity$1;
+.class Laptoide/injection/ExtraActivity$1;
 .super Ljava/lang/Object;
 .source "ExtraActivity.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Laptoide/cm/adcolonydecompile/ExtraActivity;->onCreate(Landroid/os/Bundle;)V
+    value = Laptoide/injection/ExtraActivity;->onCreate(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,16 +18,17 @@
 
 
 # instance fields
-.field final synthetic this$0:Laptoide/cm/adcolonydecompile/ExtraActivity;
+.field final synthetic this$0:Laptoide/injection/ExtraActivity;
 
 
 # direct methods
-.method constructor <init>(Laptoide/cm/adcolonydecompile/ExtraActivity;)V
+.method constructor <init>(Laptoide/injection/ExtraActivity;)V
     .locals 0
+    .param p1, "this$0"    # Laptoide/injection/ExtraActivity;
 
     .prologue
-    .line 16
-    iput-object p1, p0, Laptoide/cm/adcolonydecompile/ExtraActivity$1;->this$0:Laptoide/cm/adcolonydecompile/ExtraActivity;
+    .line 24
+    iput-object p1, p0, Laptoide/injection/ExtraActivity$1;->this$0:Laptoide/injection/ExtraActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,22 +43,22 @@
     .param p2, "s"    # Ljava/lang/String;
 
     .prologue
-    .line 19
+    .line 27
     new-instance v0, Lcom/jirbo/adcolony/AdColonyVideoAd;
 
     invoke-direct {v0}, Lcom/jirbo/adcolony/AdColonyVideoAd;-><init>()V
 
-    .line 20
+    .line 28
     .local v0, "ad":Lcom/jirbo/adcolony/AdColonyVideoAd;
     invoke-virtual {v0}, Lcom/jirbo/adcolony/AdColonyVideoAd;->show()V
 
-    .line 21
-    new-instance v1, Laptoide/cm/adcolonydecompile/ExtraActivity$1$1;
+    .line 29
+    new-instance v1, Laptoide/injection/ExtraActivity$1$1;
 
-    invoke-direct {v1, p0}, Laptoide/cm/adcolonydecompile/ExtraActivity$1$1;-><init>(Laptoide/cm/adcolonydecompile/ExtraActivity$1;)V
+    invoke-direct {v1, p0}, Laptoide/injection/ExtraActivity$1$1;-><init>(Laptoide/injection/ExtraActivity$1;)V
 
     invoke-virtual {v0, v1}, Lcom/jirbo/adcolony/AdColonyVideoAd;->withListener(Lcom/jirbo/adcolony/AdColonyAdListener;)Lcom/jirbo/adcolony/AdColonyVideoAd;
 
-    .line 30
+    .line 39
     return-void
 .end method

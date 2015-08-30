@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+The file is parsed in order
+Root tag name has no effect but "file" attribute points to target file
+
+To remove:
+<remove xpath="XPATH OF NODES TO REMOVE"/>
+
+To add:
+<add xpath="XPATH OF PARENT NODES OF THE NEW NODES">
+    <NODE TO ADD>
+        <SUB NODE TO ADD>
+        (...)
+        </SUB NODE TO ADD>
+    </NODE TO ADD>
+</add>
+
+To replace:
+<replace xpath="XPATH OF NODES TO REPLACE"/>
+    <NODE TO ADD>
+        <SUB NODE TO ADD>
+        (...)
+        </SUB NODE TO ADD>
+    </NODE TO ADD>
+</replace>
+
+
+Escape characters:
+"   &quot;
+'   &apos;
+<   &lt;
+>   &gt;
+&   &amp;
+-->
+
+<addendum file="res/values/strings.xml">
+    <add xpath="/resources">
+        <string name="swift">SIJDIASJDISJDISAJDIJSAIDJASID</string>
+    </add>
+</addendum>

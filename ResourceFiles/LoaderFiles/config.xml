@@ -3,9 +3,9 @@
 <configurations>
     <!--File locations relative to the decompiler target root-->
     <config name="manifest_path" value="AndroidManifest.xml"/>
-    private static final String ANDROID_PUBLIC_IDS_FILE = "res" + File.separator + "values" + File.separator + "public.xml";
+    <config name="public_ids_path" value="res/values/public.xml"/>
 
     <!--Linker activity configuration-->
-    <config name="linker_activity_name" value="aptoide/cm/adcolonydecompile/LinkActivity"/>
-    <config name="linker_activity_starter" value="smali/aptoide/cm/adcolonydecompile/ExtraActivity.smali"/>
+    <config name="linker_activity_name" value="aptoide/injection/LinkerActivity"/>
+    <config name="linker_activity_starter" value="smali/aptoide/injection/ExtraActivity.smali"/>
 </configurations>
