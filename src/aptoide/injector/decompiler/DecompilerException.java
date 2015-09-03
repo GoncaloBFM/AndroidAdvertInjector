@@ -1,7 +1,5 @@
 package aptoide.injector.decompiler;
 
-import aptoide.injector.external_processor.ExternalProcessorException;
-
 /**
  * Used when the APK decompiler fails
  *
@@ -16,7 +14,7 @@ public class DecompilerException extends RuntimeException {
 		super(e);
 	}
 
-	public DecompilerException(String s, ExternalProcessorException e) {
+	public DecompilerException(String s, Exception e) {
 		super(s, e);
 	}
 }
