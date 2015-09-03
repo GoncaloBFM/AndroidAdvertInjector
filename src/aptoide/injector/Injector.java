@@ -84,17 +84,20 @@ public class Injector {
 
 	/**
 	 * Creates a backup of the original files resulting from the decompiled APK
-	 * @throws IOException Could not backup the decompiled files
+	 * @return True if the backup was successful, false if not
 	 */
-	private void backupDecompile() throws IOException {
+	private boolean backupDecompile() {
+		Log.info("Making backup of original decompiled files to directory " + DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH);
 		File originalDecompile = new File(DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH);
 		FileManager.enforceDirectoryExistence(originalDecompile);
 		try {
 			FileManager.purgeDirectory(originalDecompile);
 			FileManager.mergeCopyDirectory(new File(DECOMPILER_TARGET_FULL_DIRECTORY_PATH), originalDecompile, false);
 		} catch (IOException e) {
-			throw new IOException("Could not make a copy of the original decompile in directory " + DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH);
+			return false;
 		}
+		Log.info("Backup successful");
+		return true;
 	}
 
 	/**
@@ -120,38 +123,35 @@ public class Injector {
 	 * @throws LoggerException Could not setup the logger
 	 * @throws DecompilerException APK could not be decompiled
 	 * @throws RecompilerException APK could not be recompiled
-	 * @throws IOException Could not make backup of the original decompiled file
 	 * @throws SignerException Could not sign the APK
 	 * @throws ModifierException Could not modify the APK according to the resource files
 	 */
-	private void tryInjection(String apkFullPath, String destinationFullPath) throws DecompilerException, RecompilerException, IOException, SignerException, ModifierException {
+	private boolean tryInjection(String apkFullPath, String destinationFullPath) {
 
 
 		if (!FileManager.fileExists(apkFullPath)) {
-			throw new IOException("Original APK file not found");
+			Log.severe("Original APK file not found");
+			return false;
 		}
 
 		if (!FileManager.getFileExtension(apkFullPath).equals("apk")) {
-			throw new IOException("Target file is not an APK");
+			Log.severe("Target file is not an APK");
 		}
 
 		this.createDirectories(destinationFullPath);
 
 		Log.info("Starting APK code injection on " + apkFullPath);
 
-		this.decompile(apkFullPath, DECOMPILER_TARGET_FULL_DIRECTORY_PATH);
-
-		Log.info("Making backup of original decompiled files to directory " + DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH);
-		this.backupDecompile();
-		Log.info("Backup successful");
-
-		this.modifyFiles(DECOMPILER_TARGET_FULL_DIRECTORY_PATH);
-
-		this.recompile(DECOMPILER_TARGET_FULL_DIRECTORY_PATH, RECOMPILED_APK_FULL_PATH);
-
-		this.sign(RECOMPILED_APK_FULL_PATH, destinationFullPath);
+		boolean result =
+			this.decompile(apkFullPath, DECOMPILER_TARGET_FULL_DIRECTORY_PATH) &&
+			this.backupDecompile() &&
+			this.modifyFiles(DECOMPILER_TARGET_FULL_DIRECTORY_PATH) &&
+			this.recompile(DECOMPILER_TARGET_FULL_DIRECTORY_PATH, RECOMPILED_APK_FULL_PATH) &&
+			this.sign(RECOMPILED_APK_FULL_PATH, destinationFullPath);
 
 		Log.info("The code injection was a success");
+
+		return result;
 	}
 
 	/**
@@ -160,44 +160,85 @@ public class Injector {
 	 * @param decompiledDestination Destination for the decompiled files
 	 * @throws DecompilerException Could not decompile the APK
 	 */
-	public void decompile(String apkFullPath, String decompiledDestination) throws DecompilerException {
+	public boolean decompile(String apkFullPath, String decompiledDestination) {
 		Log.info("Decompiling...");
-		this.decompiler.decompile(apkFullPath, decompiledDestination);
+		try {
+			this.decompiler.decompile(apkFullPath, decompiledDestination);
+		} catch (DecompilerException e) {
+			return false;
+		}
 		Log.info("Decompile successful");
+		return true;
 	}
 
 	/**
 	 * Modifies the decompiled files according to the resource files
 	 * @param decompiledDestination Path to the files to modify
-	 * @throws ModifierException Could not modify the decompiled files according to the resource files
+	 * @return True if the modifications was successful false if not
 	 */
-	public void modifyFiles(String decompiledDestination) throws ModifierException {
+	public boolean modifyFiles(String decompiledDestination) {
 		Log.info("Starting modification of decompiled files...");
-		this.modifier.modifyCode(decompiledDestination);
+		try {
+			this.modifier.modifyCode(decompiledDestination);
+		} catch (ModifierException e) {
+			return false;
+		}
 		Log.info("The modifications were successful");
+		return true;
 	}
 
 	/**
 	 * Recompiles a decompiled APK's files into an APK
 	 * @param decompiledDestination APK files to recompile
 	 * @param recompiledDestination Destination for the recompiled APK
-	 * @throws RecompilerException Could not recompile the APK
+	 * @return True if the recompile was successful false if not
 	 */
-	public void recompile(String decompiledDestination, String recompiledDestination) throws RecompilerException {
+	public boolean recompile(String decompiledDestination, String recompiledDestination) {
 		Log.info("Recompiling...");
-		this.recompiler.recompile(decompiledDestination, recompiledDestination);
+		try {
+			this.recompiler.recompile(decompiledDestination, recompiledDestination);
+		} catch (RecompilerException e) {
+			return false;
+		}
 		Log.info("Recompiling successful");
+		return true;
 	}
 
 	/**
 	 * Creates a signed copy of an APK in a target directory
 	 * @param unsignedDestination Path to APK file to sign
 	 * @param signedDestination Destination for the signed APK
-	 * @throws SignerException Could not sign the APK
+	 * @return True if the signing was successful false if not
 	 */
-	public void sign(String unsignedDestination, String signedDestination) throws SignerException {
+	public boolean sign(String unsignedDestination, String signedDestination) {
+
+		if (!FileManager.fileExists(apkFullPath)) {
+			Log.severe("Original APK file not found");
+			return false;
+		}
+
+		if (!FileManager.getFileExtension(apkFullPath).equals("apk")) {
+			Log.severe("Target file is not an APK");
+		}
+
+
+		return this.unsafeSign(unsignedDestination, signedDestination);
+	}
+
+	/**
+	 * Creates a signed copy of an APK in a target directory
+	 * @param unsignedDestination Path to APK file to sign
+	 * @param signedDestination Destination for the signed APK
+	 * @return True if the signing was successful false if not
+	 */
+	private boolean unsafeSign(String unsignedDestination, String signedDestination) {
 		Log.info("Signing APK...");
-		this.signer.sign(unsignedDestination, signedDestination);
+		try {
+			this.signer.sign(unsignedDestination, signedDestination);
+		} catch (SignerException e) {
+			return false;
+		}
 		Log.info("Signing successful");
+		return true;
 	}
 }
