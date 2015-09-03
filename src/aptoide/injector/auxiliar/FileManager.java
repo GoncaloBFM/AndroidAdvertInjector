@@ -275,7 +275,7 @@ public class FileManager {
 	 */
 	public static boolean enforceDirectoryExistence(File directory) {
 		if (!directory.exists()) {
-			directory.mkdir();
+			directory.mkdirs();
 			return false;
 		}
 		return true;
