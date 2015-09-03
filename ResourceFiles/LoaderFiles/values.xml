@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Escape characters:
+"   &quot;
+'   &apos;
+<   &lt;
+>   &gt;
+&   &amp;
+-->
+
+<configurations>
+    <!--File locations relative to the decompiler target root-->
+    <config name="manifest_path" value="AndroidManifest.xml"/>
+    <config name="public_ids_path" value="res/values/public.xml"/>
+
+    <!--Manifest-->
+    <config name="xpath_to_launcher_activity_on_manifest" value="/manifest/application/activity/intent-filter/category[@name=&quot;android.intent.category.LAUNCHER&quot;]/../../@name"/>
+
+       <!--Linker activity configuration-->
+    <config name="linker_activity_name" value="aptoide/injection/LinkerActivity"/>
+    <config name="linker_activity_starter" value="smali/aptoide/injection/ExtraActivity.smali"/>
+</configurations>

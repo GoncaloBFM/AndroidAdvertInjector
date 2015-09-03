@@ -3,7 +3,7 @@ package aptoide.injector;
 import java.io.File;
 
 /**
- * Created by gbfm on 8/13/15.
+ * @author      Gonçalo M.
  */
 public class Paths {
 
@@ -14,7 +14,7 @@ public class Paths {
 	public static final String COMPILER_DIRECTORY = TOOLS_DIRECTORY + File.separator + "Compiler";
 	public static final String COMPILER_FULL_PATH = COMPILER_DIRECTORY + File.separator + "apktool";
 
-	//Signer
+	//signer
 	public static final String SIGNER_DIRECTORY = TOOLS_DIRECTORY + File.separator + "Signer";
 	public static final String SIGNER_FULL_PATH = SIGNER_DIRECTORY + File.separator + "signapk.jar";
 	public static final String PEM_FULL_PATH = SIGNER_DIRECTORY + File.separator + "certificate.pem";
@@ -25,18 +25,20 @@ public class Paths {
 	public static final String FILES_TO_ADD_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "FilesToAdd";
 	public static final String ADDENDUM_FILES_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "AddendumFiles";
 	public static final String LOADER_FILES_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "LoaderFiles";
-	public static final String CONFIGURATION_FILE_FULL_PATH = LOADER_FILES_FULL_DIRECTORY_PATH + File.separator + "config.xml";
+	public static final String CONFIGURATION_FILES_FULL_DIRECTORY_PATH = RESOURCES_DIRECTORY + File.separator + "ConfigurationFiles";
+	public static final String VALUES_FILE_FULL_PATH = LOADER_FILES_FULL_DIRECTORY_PATH + File.separator + "values.xml";
 	public static final String XML_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "XML";
-	public static final String CODE_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "Code";
 	public static final String PUBLIC_IDS_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "PublicIds";
 	public static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = PUBLIC_IDS_ADDENDUM_FULL_DIRECTORY_PATH + File.separator + "public_ids_to_add.xml";
-	public static final String AUXILIAR_CONTENT_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "Content";
+	public static final String LOGGER_CONFIGURATION_FILE_FULL_PATH = CONFIGURATION_FILES_FULL_DIRECTORY_PATH + File.separator + "logger.properties";
 
 	//Target Directories
 	public static final String ROOT_TARGET_DIRECTORY = "Destination";
-	public static final String DECOMPILER_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "Decompiled";
+	public static final String DECOMPILER_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "ModifiedDecompiled";
 	public static final String DECOMPILER_ORIGINAL_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "OriginalDecompiled";
 	public static final String RECOMPILER_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "Recompiled";
 	public static final String RECOMPILED_APK_FULL_PATH = RECOMPILER_TARGET_FULL_DIRECTORY_PATH + File.separator + "recompiled.apk";
+
+	//
 
 }

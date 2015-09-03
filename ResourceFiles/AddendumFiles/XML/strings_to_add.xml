@@ -36,6 +36,6 @@ Escape characters:
 
 <addendum file="res/values/strings.xml">
     <add xpath="/resources">
-        <string name="swift">SIJDIASJDISJDISAJDIJSAIDJASID</string>
+        <string name="swift">TESTE</string>
     </add>
 </addendum>
