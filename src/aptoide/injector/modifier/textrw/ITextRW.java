@@ -21,7 +21,7 @@ public interface ITextRW extends ITextParser{
 	String appendToFileContent(String string);
 
 	/**
-	 * Prepends (if you don't know what that is go to the dictionary jeez) content
+	 * Prepends (if you don't know what that means is go to the dictionary... jeez) content
 	 * @param string Content to append
 	 * @return The entire updated content
 	 */

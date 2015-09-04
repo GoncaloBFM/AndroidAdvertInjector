@@ -53,7 +53,7 @@ public class XMLRW extends XMLParser implements IXMLRW {
 	/**
 	 * Removes a node from a document
 	 * @param node Node to be removed
-	 * @throws XPathException Could find parent of node to remove (node may be root)
+	 * @throws XMLPathException Could find parent of node to remove (node may be root)
 	 */
 	protected void removeNode(Node node) throws XMLPathException {
 		Node parentNode = node.getParentNode();
@@ -74,7 +74,7 @@ public class XMLRW extends XMLParser implements IXMLRW {
 	 * @param nodesToAdd New nodes
 	 * @param nodeToRemove Node to be replaced
 	 * @param addedNodesAreFromOtherDocument True if the added nodes are from another document False if not
-	 * @throws XPathException Could find parent of node to remove (node may be root)
+	 * @throws XMLPathException Could find parent of node to remove (node may be root)
 	 */
 	protected void replaceNodes(NodeList nodesToAdd, Node nodeToRemove, boolean addedNodesAreFromOtherDocument) throws XMLPathException {
 		Node parentNode = nodeToRemove.getParentNode();

@@ -68,7 +68,7 @@ public class Main {
 					printHelp();
 				}
 				injector = new Injector();
-				injector.modifyFiles(args[1]);
+				injector.modify(args[1]);
 			default:
 				printHelp();
 		}
