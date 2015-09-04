@@ -130,7 +130,7 @@ public class Injector {
 
 
 		if (!FileManager.fileExists(apkFullPath)) {
-			Log.severe("Original APK file not found");
+			Log.severe("Target APK  not found");
 			return false;
 		}
 
@@ -212,15 +212,14 @@ public class Injector {
 	 */
 	public boolean sign(String unsignedDestination, String signedDestination) {
 
-		if (!FileManager.fileExists(apkFullPath)) {
+		if (!FileManager.fileExists(unsignedDestination)) {
 			Log.severe("Original APK file not found");
 			return false;
 		}
 
-		if (!FileManager.getFileExtension(apkFullPath).equals("apk")) {
+		if (!FileManager.getFileExtension(unsignedDestination).equals("apk")) {
 			Log.severe("Target file is not an APK");
 		}
-
 
 		return this.unsafeSign(unsignedDestination, signedDestination);
 	}
