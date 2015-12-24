@@ -65,7 +65,7 @@ public class FileManager {
 	 * @return True if the file is a directory, False if not
 	 */
 	public static boolean isDirectory(String filePath) {
-		return fileExists(new File(filePath));
+		return isDirectory(new File(filePath));
 	}
 
 	/**

@@ -30,7 +30,6 @@ public class Paths {
 	public static final String XML_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "XML";
 	public static final String PUBLIC_IDS_ADDENDUM_FULL_DIRECTORY_PATH = ADDENDUM_FILES_FULL_DIRECTORY_PATH + File.separator + "PublicIds";
 	public static final String FILE_WITH_PUBLIC_IDS_TO_ADD_FULL_PATH = PUBLIC_IDS_ADDENDUM_FULL_DIRECTORY_PATH + File.separator + "public_ids_to_add.xml";
-	public static final String LOGGER_CONFIGURATION_FILE_FULL_PATH = CONFIGURATION_FILES_FULL_DIRECTORY_PATH + File.separator + "logger.properties";
 
 	//Target Directories
 	public static final String ROOT_TARGET_DIRECTORY = "Destination";
@@ -39,6 +38,7 @@ public class Paths {
 	public static final String RECOMPILER_TARGET_FULL_DIRECTORY_PATH = ROOT_TARGET_DIRECTORY + File.separator + "Recompiled";
 	public static final String RECOMPILED_APK_FULL_PATH = RECOMPILER_TARGET_FULL_DIRECTORY_PATH + File.separator + "recompiled.apk";
 
-	//
+	//Logger
+	public static final String LOGGER_CONFIGURATION_FILE_FULL_PATH = "ConfigurationFiles" + File.separator + "logger.properties";
 
 }

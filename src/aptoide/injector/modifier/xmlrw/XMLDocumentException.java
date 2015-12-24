@@ -13,4 +13,8 @@ public class XMLDocumentException extends XMLException{
 	public XMLDocumentException(String s, Exception e) {
 		super(s, e);
 	}
+
+	public XMLDocumentException(String s) {
+		super(s);
+	}
 }

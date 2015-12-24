@@ -62,6 +62,9 @@ public class Injector {
 	 */
 	private void setupLogger() throws LoggerException {
 		FileManager.enforceDirectoryExistence(LOGGER_CONFIGURATION_FILE_FULL_PATH);
+		if (!FileManager.fileExists(LOGGER_CONFIGURATION_FILE_FULL_PATH)) {
+			throw new LoggerException("Logger configuration file not found (" + LOGGER_CONFIGURATION_FILE_FULL_PATH + ")" + " please create one");
+		}
 		try {
 			FileInputStream configFile = new FileInputStream(LOGGER_CONFIGURATION_FILE_FULL_PATH);
 			LogManager.getLogManager().readConfiguration(configFile);
@@ -85,7 +88,7 @@ public class Injector {
 	}
 
 	/**
-	 * Tries to decompile a designated APK, modify it, recompiled it with a new name and sign it
+	 * Decompiles a designated APK, modifies it, recompiles it with a new name and signs it
 	 * @param apkFullPath APK to decompile
 	 * @param destinationFullPath Destination of the recompiled, signed APK
 	 *
@@ -95,11 +98,6 @@ public class Injector {
 
 		if (!FileManager.fileExists(apkFullPath)) {
 			Log.severe("Target APK  not found");
-			return false;
-		}
-
-		if (!FileManager.getFileExtension(apkFullPath).equals("apk")) {
-			Log.severe("Target file is not an APK");
 			return false;
 		}
 
@@ -113,7 +111,6 @@ public class Injector {
 		}
 
 		Log.info("Starting APK code injection on " + apkFullPath);
-
 
 		try {
 			this.uncheckedDecompile(apkFullPath, DECOMPILER_TARGET_FULL_DIRECTORY_PATH);
@@ -144,7 +141,7 @@ public class Injector {
 		}
 
 		try {
-			this.decompiler.decompile(apkFullPath, decompiledDestination);
+			this.uncheckedDecompile(apkFullPath, decompiledDestination);
 		} catch (DecompilerException e) {
 			Log.log(Level.SEVERE, "Could not decompile APK", e);
 			return false;

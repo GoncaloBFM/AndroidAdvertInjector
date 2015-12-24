@@ -5,7 +5,7 @@ import aptoide.injector.external_processor.ExternalProcessor;
 import aptoide.injector.external_processor.ExternalProcessorException;
 
 /**
- * Apk recompiler using ApkTool (@link http://ibotpeaches.github.io/Apktool/)
+ * Apk recompiler using ApkTool 2.0.1 (@link http://ibotpeaches.github.io/Apktool/)
  * The recompiler only works on Java 7 (JRE 1.7) or higher
  *
  * @author      Gonçalo M.

@@ -46,7 +46,7 @@ public class Modifier implements IModifier {
 		Log.info("Loading values file");
 		HashMap<String, String> values = this.loadInjectorValues(VALUES_FILE_FULL_PATH);
 		Log.info("Retrieving launcher activity");
-		String launchActivity = this.getCurrentLaunchActivityName(decompiledDirectory, values.get(MANIFEST_PATH_CONFIG_NAME), values.get(XPATH_TO_LAUNCHER_ACTIVITY_ON_MANIFEST_CONFIG_NAME));
+ 		String launchActivity = this.getCurrentLaunchActivityName(decompiledDirectory, values.get(MANIFEST_PATH_CONFIG_NAME), values.get(XPATH_TO_LAUNCHER_ACTIVITY_ON_MANIFEST_CONFIG_NAME));
 		Log.info("Adding files");
 		LinkedList<File> filesAdded = this.addFiles(decompiledDirectory);
 		Log.info("Setting a new launcher activity");
@@ -189,7 +189,7 @@ public class Modifier implements IModifier {
 				addendum.apply();
 				addendum.writeChanges();
 			} catch (AddendumException e) {
-				throw new ModifierException("Could not write file after applying " +  xmlAddendumFile.getName() + "addendum", e);
+				throw new ModifierException("Could not write file after applying " +  xmlAddendumFile.getName() + " addendum", e);
 			}
 		}
 	}
